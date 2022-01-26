@@ -1,0 +1,80 @@
+@import "variables";
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-image: url(../../sun-tornado.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.nav--container {
+  width: 100%;
+
+  nav {
+    max-width: 1400px;
+    margin: auto;
+    color: $green;
+    text-align: center;
+
+    h1 {
+      margin: 1rem 0 0.5rem 0;
+      font-size: 2rem;
+    }
+
+    ul {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 0.5rem 0 1rem 0;
+      border-bottom: 2px solid $green;
+
+      li {
+        margin: 0 1rem;
+        font-weight: 500;
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.trending--container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1rem 0 0 0;
+  max-width: 1400px;
+  margin: auto;
+
+  .movie--card {
+    margin: .8rem;
+    border-radius: 5px;
+    position: relative;
+
+    img {
+      max-width: 250px;
+      height: 100%;
+    }
+
+    .rating {
+      position: absolute;
+      z-index: 99;
+      top: -10px;
+      left: -10px;
+      padding: .2rem;
+      font-weight: 700;
+      border-radius: 2px;
+      font-size: .8rem;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+}
