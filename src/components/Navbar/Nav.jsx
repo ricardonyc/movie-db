@@ -7,11 +7,16 @@ function Nav(props) {
     textDecoration: "none",
   };
 
+  // when one of the items are clicked, it changes color
+
   return (
     <div className="nav--container">
       <nav>
         <h1>Movie DB</h1>
         <ul>
+          <Link to="home" style={underline}>
+            <li>Home</li>
+          </Link>
           <Link to="movies" style={underline}>
             <li>Movies</li>
           </Link>
@@ -24,7 +29,9 @@ function Nav(props) {
           <Link to="now_playing" style={underline}>
             <li>Now Playing</li>
           </Link>
-          <li>Search</li>
+          <Link to="search" style={underline}>
+            <li>Search</li>
+          </Link>
         </ul>
       </nav>
       {/* <BottomNav className="BottomNav" /> */}

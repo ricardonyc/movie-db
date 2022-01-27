@@ -48,6 +48,10 @@ body {
   text-decoration: none;
 }
 
+.nav--container nav ul li:focus {
+  color: red;
+}
+
 .trending--container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -63,9 +67,16 @@ body {
 }
 
 .trending--container .movie--card {
-  margin: .8rem;
-  border-radius: 5px;
+  margin: 0.5rem;
   position: relative;
+  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.trending--container .movie--card:hover .text--container {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
 }
 
 .trending--container .movie--card img {
@@ -76,11 +87,55 @@ body {
 .trending--container .movie--card .rating {
   position: absolute;
   z-index: 99;
-  top: -10px;
-  left: -10px;
-  padding: .2rem;
+  top: 3px;
+  left: 3px;
+  padding: 0.2rem;
   font-weight: 700;
   border-radius: 2px;
-  font-size: .8rem;
+  font-size: 0.8rem;
+  -webkit-box-shadow: 0 3px 10px black;
+          box-shadow: 0 3px 10px black;
+}
+
+.trending--container .movie--card .text--container {
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding: 1rem;
+  position: absolute;
+  z-index: 5;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.603);
+  background: #2680d5;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(38, 128, 213, 0.09)), color-stop(85%, #0e3356));
+  background: linear-gradient(180deg, rgba(38, 128, 213, 0.09) 0%, #0e3356 85%);
+  color: white;
+  height: 100%;
+  -webkit-transition: -webkit-transform 500ms ease-in-out;
+  transition: -webkit-transform 500ms ease-in-out;
+  transition: transform 500ms ease-in-out;
+  transition: transform 500ms ease-in-out, -webkit-transform 500ms ease-in-out;
+}
+
+.trending--container .movie--card .text--container p {
+  font-size: 0.8rem;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 10;
+  -webkit-box-orient: vertical;
+}
+
+.trending--container .movie--card .text--container:hover {
+  -webkit-transform: translateY(0%);
+          transform: translateY(0%);
 }
 /*# sourceMappingURL=style.css.map */

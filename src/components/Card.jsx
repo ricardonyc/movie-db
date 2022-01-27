@@ -1,8 +1,11 @@
+import Badge from "@mui/material/Badge";
+import MailIcon from "@mui/icons-material/Mail";
 import React from "react";
 
 function Card({ info }) {
   const {
     title,
+    name,
     overview,
     poster_path,
     vote_average,
@@ -17,7 +20,7 @@ function Card({ info }) {
       vote_average >= 8 ? "#62ee81" : vote_average >= 7 ? "#FFA212" : "#FF2222",
   };
 
-  // console.log(info);
+  // console.log(info)
 
   return (
     <div className="movie--card">
@@ -25,6 +28,10 @@ function Card({ info }) {
       <p className="rating" style={ratingColor}>
         {vote_average}
       </p>
+      <div className="text--container">
+        <h2>{title ? title : name}</h2>
+        <p>{overview}</p>
+      </div>
     </div>
   );
 }
