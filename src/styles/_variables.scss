@@ -3,3 +3,8 @@
 $blue: #0e3356;
 $green: #62ee81;
  
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

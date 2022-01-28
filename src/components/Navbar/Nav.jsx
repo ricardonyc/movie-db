@@ -1,8 +1,16 @@
-import React from "react";
-import BottomNav from "./BottomNav";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { FaStream } from "react-icons/fa";
 
 function Nav(props) {
+  const [sidebar, setSidebar] = useState(false);
+
+  function toggleSidebar() {
+    setSidebar((prev) => !prev);
+  }
+
+  console.log(sidebar);
+
   const underline = {
     textDecoration: "none",
   };
@@ -12,8 +20,19 @@ function Nav(props) {
   return (
     <div className="nav--container">
       <nav>
-        <h1>Movie DB</h1>
-        <ul>
+        <h1 onClick={toggleSidebar}>Movie DB</h1>
+        {/* burger menu */}
+        <FaStream
+          onClick={toggleSidebar}
+          className="burger--menu"
+          style={{ cursor: "pointer" }}
+        />
+        {/* shadow overlay when sidebar opens */}
+        <div
+          onClick={toggleSidebar}
+          className={sidebar ? "overlay" : null}
+        ></div>
+        <ul className={sidebar ? "sidebar move" : "sidebar"}>
           <Link to="home" style={underline}>
             <li>Home</li>
           </Link>
@@ -34,11 +53,8 @@ function Nav(props) {
           </Link>
         </ul>
       </nav>
-      {/* <BottomNav className="BottomNav" /> */}
     </div>
   );
 }
 
 export default Nav;
-
-// FaEllo

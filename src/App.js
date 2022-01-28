@@ -1,20 +1,25 @@
+import React, { useState, useEffect } from 'react';
 import "./styles/style.css";
 import Nav from "./components/Navbar/Nav";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Trending from "./components/Trending";
-import BottomNav from "./components/Navbar/BottomNav";
 import Movies from "./components/Movies";
 import NowPlaying from "./components/NowPlaying";
 import TvShows from "./components/TvShows";
 import Search from "./components/Search";
 import Home from "./Homepage/Home";
 
+
 function App() {
+
+
+
+
+
   return (
     <Router>
       <div className="App">
         <Nav />
-        {/* <BottomNav /> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />

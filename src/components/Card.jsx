@@ -13,6 +13,8 @@ function Card({ info }) {
     release_date,
   } = info;
 
+  console.log(info)
+
   const imgUrl = `https://image.tmdb.org/t/p/original${poster_path}`;
 
   const ratingColor = {
