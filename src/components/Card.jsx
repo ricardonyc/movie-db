@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import MoviePage from "./MoviePage";
 
-function Card({ info }) {
+function Card({ info, setTrending }) {
   const {
     title,
     name,
@@ -12,10 +12,12 @@ function Card({ info }) {
     vote_average,
     vote_count,
     release_date,
-    id,
+    id: movie_id,
   } = info;
 
   // console.log(info)
+  // console.log(setTrending)
+  // console.log(vote_average)
 
   const imgUrl = `https://image.tmdb.org/t/p/original${poster_path}`;
 
@@ -27,7 +29,24 @@ function Card({ info }) {
   // console.log(id);
 
   return (
-    <Link to={`${id}`} className="link">
+    <Link
+      to={`${movie_id}`}
+      className="link"
+      // using the setTrending function to set the new state of 'trending' in App.js
+      // to pass data into MOVIEPAGE component
+      onClick={() =>
+        setTrending({
+          movie_id,
+          title,
+          name,
+          overview,
+          poster_path,
+          vote_count,
+          vote_average,
+          release_date,
+        })
+      }
+    >
       <div className="movie--card">
         <img src={imgUrl} alt="" />
         <p className="rating" style={ratingColor}>

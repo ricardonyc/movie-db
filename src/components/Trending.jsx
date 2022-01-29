@@ -18,7 +18,14 @@ function Trending(props) {
     <div className="trending--container">
       <div className="trending--section">
         {data.map((movie) => {
-          return <Card info={movie} key={movie.id} />;
+          return (
+            <Card
+              info={movie}
+              key={movie.id}
+              // sending 'setTrending' state function into the CARD component
+              setTrending={props.setTrending}
+            />
+          );
         })}
       </div>
     </div>

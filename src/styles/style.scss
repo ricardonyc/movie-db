@@ -103,7 +103,7 @@ a {
         font-weight: 700;
         border-radius: 2px;
         font-size: 0.8rem;
-        box-shadow: 0 3px 10px rgba(0, 0, 0, .5);
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
         color: black;
       }
 
@@ -158,6 +158,31 @@ a {
 //   background: $blue;
 //   color: white;
 // }
+
+.moviepage--container {
+  max-width: 1400px;
+  margin: auto;
+  color: white;
+
+  .moviepage--section {
+    position: relative;
+    width: 100%;
+    border: 1px solid white;
+    // display: flex;
+    // flex-wrap: wrap;
+
+    .movie--info {
+      border: 1px solid red;
+      padding: 1rem;
+    }
+
+    img {
+      // position: absolute;
+      max-width: 400px;
+      border-radius: 5px;
+    }
+  }
+}
 
 @media (max-width: 797px) {
   nav {

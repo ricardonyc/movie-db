@@ -169,6 +169,28 @@ a.link {
           transform: translateY(0%);
 }
 
+.moviepage--container {
+  max-width: 1400px;
+  margin: auto;
+  color: white;
+}
+
+.moviepage--container .moviepage--section {
+  position: relative;
+  width: 100%;
+  border: 1px solid white;
+}
+
+.moviepage--container .moviepage--section .movie--info {
+  border: 1px solid red;
+  padding: 1rem;
+}
+
+.moviepage--container .moviepage--section img {
+  max-width: 400px;
+  border-radius: 5px;
+}
+
 @media (max-width: 797px) {
   nav {
     display: -webkit-box;
