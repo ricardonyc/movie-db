@@ -66,7 +66,19 @@ body {
   background: #193855;
 }
 
+a.link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .trending--container {
+  max-width: 1400px;
+  margin: auto;
+  padding-bottom: 3rem;
+}
+
+.trending--container .trending--section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -76,11 +88,10 @@ body {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   padding: 1rem 0 0 0;
-  max-width: 1400px;
-  margin: auto;
+  width: 100%;
 }
 
-.trending--container .movie--card {
+.trending--container .trending--section .movie--card {
   margin: 0.5rem;
   position: relative;
   -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
@@ -88,17 +99,18 @@ body {
   overflow: hidden;
 }
 
-.trending--container .movie--card:hover .text--container {
+.trending--container .trending--section .movie--card:hover .text--container {
   -webkit-transform: translateY(0);
           transform: translateY(0);
 }
 
-.trending--container .movie--card img {
+.trending--container .trending--section .movie--card img {
+  display: block;
   max-width: 220px;
   height: 100%;
 }
 
-.trending--container .movie--card .rating {
+.trending--container .trending--section .movie--card .rating {
   position: absolute;
   z-index: 99;
   top: 3px;
@@ -107,11 +119,12 @@ body {
   font-weight: 700;
   border-radius: 2px;
   font-size: 0.8rem;
-  -webkit-box-shadow: 0 3px 10px black;
-          box-shadow: 0 3px 10px black;
+  -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+  color: black;
 }
 
-.trending--container .movie--card .text--container {
+.trending--container .trending--section .movie--card .text--container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -139,15 +152,19 @@ body {
   transition: transform 500ms ease-in-out, -webkit-transform 500ms ease-in-out;
 }
 
-.trending--container .movie--card .text--container p {
+.trending--container .trending--section .movie--card .text--container h2 {
+  font-size: 1.3rem;
+}
+
+.trending--container .trending--section .movie--card .text--container p {
   font-size: 0.8rem;
   display: -webkit-box;
   overflow: hidden;
-  -webkit-line-clamp: 10;
+  -webkit-line-clamp: 8;
   -webkit-box-orient: vertical;
 }
 
-.trending--container .movie--card .text--container:hover {
+.trending--container .trending--section .movie--card .text--container:hover {
   -webkit-transform: translateY(0%);
           transform: translateY(0%);
 }

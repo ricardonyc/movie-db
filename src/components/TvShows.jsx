@@ -14,11 +14,14 @@ function TvShows(props) {
 
   return (
     <div className="trending--container">
-      {data.map((movie) => {
-        return <Card info={movie} key={movie.id} />;
-      })}
+      <div className="trending--section">
+        {data.map((movie) => {
+          return <Card info={movie} key={movie.id} />;
+        })}
+      </div>
     </div>
   );
 }
 
 export default TvShows;
+ 

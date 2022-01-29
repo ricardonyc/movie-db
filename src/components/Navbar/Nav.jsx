@@ -9,7 +9,7 @@ function Nav(props) {
     setSidebar((prev) => !prev);
   }
 
-  console.log(sidebar);
+  // console.log(sidebar);
 
   const underline = {
     textDecoration: "none",
@@ -27,11 +27,13 @@ function Nav(props) {
           className="burger--menu"
           style={{ cursor: "pointer" }}
         />
+
         {/* shadow overlay when sidebar opens */}
         <div
           onClick={toggleSidebar}
           className={sidebar ? "overlay" : null}
         ></div>
+
         <ul className={sidebar ? "sidebar move" : "sidebar"}>
           <Link to="home" style={underline}>
             <li>Home</li>
