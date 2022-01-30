@@ -3,6 +3,8 @@
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 body {
@@ -249,22 +251,61 @@ a.link {
   max-width: 1400px;
   margin: auto;
   color: white;
+  margin-top: 2rem;
+  border-radius: 5px;
+  overflow: hidden;
+  padding: 0 1rem;
 }
 
 .moviepage--container .moviepage--section {
   position: relative;
   width: 100%;
-  border: 1px solid white;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 400px 1fr;
+      grid-template-columns: 400px 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+      grid-template-areas: "img text";
 }
 
 .moviepage--container .moviepage--section .movie--info {
-  border: 1px solid red;
+  border-radius: 0 5px 5px 0;
   padding: 1rem;
+  background: #62ee81;
+  color: #0e3356;
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: text;
+}
+
+.moviepage--container .moviepage--section .movie--info .rating--section {
+  background: #0e3356;
+  color: white;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 3px;
+  margin-top: .5rem;
+  padding: 0.2rem 0.6rem;
+}
+
+.moviepage--container .moviepage--section .movie--info .rating--section .neutral,
+.moviepage--container .moviepage--section .movie--info .rating--section .fire,
+.moviepage--container .moviepage--section .movie--info .rating--section .poo,
+.moviepage--container .moviepage--section .movie--info .rating--section .recommended {
+  margin-right: 0.5rem;
 }
 
 .moviepage--container .moviepage--section img {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: img;
   max-width: 400px;
-  border-radius: 5px;
+  border-radius: 5px 0 0 5px;
 }
 
 @media (max-width: 797px) {
@@ -318,6 +359,35 @@ a.link {
     background: #183857;
     margin: 1rem 0.8rem !important;
     padding: 0.5rem 0 0.5rem 1rem !important;
+  }
+  .moviepage--container {
+    margin-top: 2rem;
+    padding: 0;
+  }
+  .moviepage--container .moviepage--section {
+    margin: auto;
+    display: -ms-grid;
+    display: grid;
+    justify-items: center;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: 1fr auto;
+        grid-template-rows: 1fr auto;
+        grid-template-areas: "img" "text";
+  }
+  .moviepage--container .moviepage--section .movie--info {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    grid-area: text;
+    max-width: 500px;
+    border-radius: 0 0 5px 5px;
+  }
+  .moviepage--container .moviepage--section img {
+    border-radius: 5px 5px 0 0;
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: img;
+    max-width: 500px;
   }
 }
 /*# sourceMappingURL=style.css.map */

@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import MoviePage from "./MoviePage";
 
-function Card({ info, setTrending }) {
+function Card({ info, setMedia }) {
   const {
     title,
     name,
@@ -13,7 +13,10 @@ function Card({ info, setTrending }) {
     vote_count,
     release_date,
     id: movie_id,
+    genre_ids
   } = info;
+
+
 
   // console.log(info)
   // console.log(setTrending)
@@ -35,7 +38,7 @@ function Card({ info, setTrending }) {
       // using the setTrending function to set the new state of 'trending' in App.js
       // to pass data into MOVIEPAGE component
       onClick={() =>
-        setTrending({
+        setMedia({
           movie_id,
           title,
           name,
@@ -44,6 +47,7 @@ function Card({ info, setTrending }) {
           vote_count,
           vote_average,
           release_date,
+          genre_ids
         })
       }
     >

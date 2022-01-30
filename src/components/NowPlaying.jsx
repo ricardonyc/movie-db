@@ -1,16 +1,21 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Card from "./Card";
 
 function NowPlaying(props) {
-  const [data, setData] = useState([]);
+  const [nowPlaying, setNowPlaying] = useState([]);
   const [checked, setChecked] = useState(false);
 
+  const fetchTrending = async () => {
+    const { data } = await axios.get(
+      `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+    );
+
+    setNowPlaying(data.results);
+  };
+
   useEffect(() => {
-    fetch(
-      `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1 `
-    )
-      .then((res) => res.json())
-      .then((data) => setData(data.results));
+    fetchTrending();
   }, []);
 
   // checkbox is checked ? sort them
@@ -30,8 +35,8 @@ function NowPlaying(props) {
     // take in the checked value of input
     // if true (checked) then run the setData function and sort
     // if false (not checked) then run the other function that sets to the original
-    setData(
-      data
+    setNowPlaying(
+      nowPlaying
         .sort((item1, item2) => item1.vote_average - item2.vote_average)
         .reverse()
     );
@@ -46,8 +51,10 @@ function NowPlaying(props) {
       <input type="checkbox" checked={checked} onChange={toggleSort} />
 
       <div className="trending--section">
-        {data.map((movie) => {
-          return <Card info={movie} key={movie.id} />;
+        {nowPlaying.map((movie) => {
+          return (
+            <Card info={movie} key={movie.id} setMedia={props.setMedia} />
+          );
         })}
       </div>
     </div>
