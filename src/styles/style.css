@@ -169,6 +169,82 @@ a.link {
           transform: translateY(0%);
 }
 
+.home--container {
+  padding: 1rem;
+  max-width: 1400px;
+  margin: auto;
+  height: 80vh;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 10px;
+  -ms-grid-columns: 50px 50px 50px 50px;
+      grid-template-columns: 50px 50px 50px 50px;
+  -ms-grid-rows: (1fr)[2];
+      grid-template-rows: repeat(2, 1fr);
+  grid: "one one two three" "four five five three";
+  color: white;
+}
+
+.home--container .one {
+  position: relative;
+  overflow: hidden;
+  grid-area: one;
+  border: 1px solid white;
+}
+
+.home--container .one .overlay {
+  position: absolute;
+}
+
+.home--container .one img {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  left: 0;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.home--container .two {
+  position: relative;
+  grid-area: two;
+  border: 1px solid gray;
+}
+
+.home--container .two .overlay {
+  position: absolute;
+}
+
+.home--container .two img {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  left: 0;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.home--container .three {
+  grid-area: three;
+  border: 1px solid purple;
+}
+
+.home--container .four {
+  grid-area: four;
+  border: 1px solid red;
+}
+
+.home--container .five {
+  grid-area: five;
+  border: 1px solid lightblue;
+}
+
 .moviepage--container {
   max-width: 1400px;
   margin: auto;

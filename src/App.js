@@ -28,8 +28,7 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem("trending-list", JSON.stringify(trending));
-  });
-
+  }); 
   return (
     <Router>
       <div className="App">

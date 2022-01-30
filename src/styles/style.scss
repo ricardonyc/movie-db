@@ -159,6 +159,78 @@ a {
 //   color: white;
 // }
 
+.home--container {
+  padding: 1rem;
+  max-width: 1400px;
+  margin: auto;
+  height: 80vh;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 50px 50px 50px 50px;
+  grid-template-rows: repeat(2, 1fr);
+  grid:
+    "one one two three"
+    "four five five three";
+  color: white;
+
+  .one {
+    position: relative;
+    overflow: hidden;
+    grid-area: one;
+    // background: rgb(141, 92, 0);
+    border: 1px solid white;
+
+    .overlay {
+      position: absolute;
+    }
+
+    img {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .two {
+    position: relative;
+    grid-area: two;
+    border: 1px solid gray;
+
+    .overlay {
+      position: absolute;
+    }
+
+    img {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .three {
+    grid-area: three;
+    border: 1px solid purple;
+  }
+
+  .four {
+    grid-area: four;
+    border: 1px solid red;
+  }
+
+  .five {
+    grid-area: five;
+    border: 1px solid lightblue;
+  }
+}
+
 .moviepage--container {
   max-width: 1400px;
   margin: auto;
