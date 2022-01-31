@@ -14,6 +14,7 @@ import genres from "./Genres";
 
 function App() {
   const [media, setMedia] = useState([]);
+  const [recommendations, setRecommendations] = useState([]);
   // const [nowPlaying, setNowPlaying] = useState([]);
 
   // console.log(trending);
@@ -32,6 +33,21 @@ function App() {
     localStorage.setItem("media-list", JSON.stringify(media));
   });
 
+  // Saving recommendations in local storage 
+  useEffect(() => {
+    const recommendationsData = localStorage.getItem("recommendations-list");
+    if (recommendationsData) {
+      setRecommendations(JSON.parse(recommendationsData));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem(
+      "recommendations-list",
+      JSON.stringify(recommendations)
+    );
+  });
+
   // console.log(genres.genres)
 
   return (
@@ -44,18 +60,17 @@ function App() {
           <Route path="/movies" element={<Movies />} />
           <Route path="/tv_shows" element={<TvShows setMedia={setMedia} />} />
           {/* send the setTrending function into TRENDING component */}
-          <Route
-            path="/trending"
-            element={<Trending setMedia={setMedia} />}
-          />
+          <Route path="/trending" element={<Trending setMedia={setMedia} />} />
           <Route
             path="/now_playing"
-            element={<NowPlaying  setMedia={setMedia} />}
+            element={<NowPlaying setMedia={setMedia} />}
           />
           {/* trending gets a new state, state passed into MoviePage with new data */}
           <Route
             path={`/:page/:id`}
-            element={<MoviePage media={media} />}
+            element={
+              <MoviePage media={media} recommendations={recommendations} setRecommendations={setRecommendations} />
+            }
           />
 
           <Route path="/search" element={<Search />} />

@@ -5,8 +5,6 @@ import Card from "./Card";
 function TvShows(props) {
   const [tvShows, setTvShows] = useState([]);
 
-
-
   const fetchTrending = async () => {
     const { data } = await axios.get(
       `https://api.themoviedb.org/3/trending/tv/day?api_key=${process.env.REACT_APP_TMDB_KEY}`
@@ -20,8 +18,8 @@ function TvShows(props) {
   }, []);
 
   return (
-    <div className="trending--container">
-      <div className="trending--section">
+    <div className="card--container">
+      <div className="card--section">
         {tvShows.map((movie) => {
           return <Card info={movie} key={movie.id} setMedia={props.setMedia} />;
         })}
@@ -31,4 +29,3 @@ function TvShows(props) {
 }
 
 export default TvShows;
- 

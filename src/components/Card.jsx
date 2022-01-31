@@ -18,7 +18,6 @@ function Card({ info, setMedia }) {
     first_air_date,
   } = info;
 
-  // console.log(info);
 
   // console.log(info)
   // console.log(setTrending)

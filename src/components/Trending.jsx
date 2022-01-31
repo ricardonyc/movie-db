@@ -56,8 +56,8 @@ function Trending(props) {
   // console.log(foundGenres);
 
   return (
-    <div className="trending--container">
-      <div className="trending--section">
+    <div className="card--container">
+      <div className="card--section">
         {trending.map((movie) => {
           return (
             <Card
@@ -73,5 +73,5 @@ function Trending(props) {
     </div>
   );
 }
-
+ 
 export default Trending;

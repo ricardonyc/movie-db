@@ -67,12 +67,12 @@ a {
   }
 }
 
-.trending--container {
+.card--container {
   max-width: 1400px;
   margin: auto;
   padding-bottom: 3rem;
 
-  .trending--section {
+  .card--section {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -271,13 +271,20 @@ a {
       .overview {
       }
 
+      .release--date {
+        // border: 1px solid red;
+        // display:
+        margin: 0.2rem 0;
+        font-weight: 600;
+      }
+
       .rating--section {
         background: $blue;
         color: white;
         display: inline-flex;
         align-items: center;
         border-radius: 3px;
-        margin-top: .5rem;
+        margin-top: 0.5rem;
         padding: 0.2rem 0.6rem;
 
         .neutral,
@@ -285,7 +292,7 @@ a {
         .poo,
         .recommended {
           // border: 1px solid red;
-          margin: .2rem .5rem .2rem 0;
+          margin: 0.2rem 0.5rem 0.2rem 0;
           font-size: 1.4rem;
           // margin-right: 0.5rem;
         }
@@ -300,6 +307,57 @@ a {
       // height: 100%;
       // border: 1px solid red;
       border-radius: 5px 0 0 5px;
+    }
+  }
+
+  // .recommendations--container {
+  //   width: 100%;
+  //   display: flex;
+  //   justify-content: center;
+  //   border: 1px solid red;
+  //   flex-wrap: wrap;
+
+  //   .movie--card {
+  //     //  display: flex;
+  //     margin: 1rem;
+  //     max-width: 200px;
+  //     border: 1px solid red;
+
+  //     img {
+  //       max-width: 200px;
+  //     }
+  //   }
+  // }
+}
+
+.search--container {
+  border: 1px solid red;
+  max-width: 1400px;
+  margin: auto;
+
+  .input--container {
+    position: relative;
+    // border: 1px solid white;
+
+    .search--icon {
+      opacity: .4;
+      position: absolute;
+      top: 50%;
+      left: 5px;
+      transform: translateY(-50%);
+      color: $blue;
+      font-size: 1.4rem;
+    }
+
+    .search--bar {
+      // border: 1px solid red;
+      border-radius: 15px;
+      padding: 0.2rem 0 0.2rem 2rem;
+      border: none;
+
+      &:focus {
+        outline: none;
+      }
     }
   }
 }
@@ -357,6 +415,16 @@ a {
     }
   }
 
+  .trending--container {
+    .trending--section {
+      .movie--card {
+        .text--container {
+          display: none;
+        }
+      }
+    }
+  }
+
   .moviepage--container {
     // margin-top: 2rem;
     margin: 2rem 1rem 0 1rem;
@@ -389,8 +457,7 @@ a {
         margin-bottom: 2rem;
         padding: 1rem;
 
-
-        .overview{
+        .overview {
           // padding: 0 1rem;
         }
 
@@ -410,8 +477,4 @@ a {
       }
     }
   }
-
-  // .text--container{
-  //   display: none !important;
-  // }
 }

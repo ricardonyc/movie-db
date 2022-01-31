@@ -18,6 +18,10 @@ function NowPlaying(props) {
     fetchTrending();
   }, []);
 
+
+  // console.log(props)
+
+
   // checkbox is checked ? sort them
   // box set to true ? sort them
 
@@ -35,22 +39,22 @@ function NowPlaying(props) {
     // take in the checked value of input
     // if true (checked) then run the setData function and sort
     // if false (not checked) then run the other function that sets to the original
-    setNowPlaying(
+    setNowPlaying( 
       nowPlaying
         .sort((item1, item2) => item1.vote_average - item2.vote_average)
         .reverse()
     );
   };
-  console.log(checked ? "CHECKED" : "not checked");
+  // console.log(checked ? "CHECKED" : "not checked");
 
   return (
-    <div className="trending--container">
+    <div className="card--container">
       <label htmlFor="high" style={{ color: "white" }}>
         Highest to Lowest rated
       </label>
       <input type="checkbox" checked={checked} onChange={toggleSort} />
 
-      <div className="trending--section">
+      <div className="card--section">
         {nowPlaying.map((movie) => {
           return (
             <Card info={movie} key={movie.id} setMedia={props.setMedia} />
