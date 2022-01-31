@@ -21,6 +21,8 @@ function Trending(props) {
     fetchTrending();
   }, []);
 
+  // console.log(trending);
+
   // useEffect(() => {
   //   setGenreList(genres)
   // }, []);

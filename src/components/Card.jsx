@@ -13,10 +13,12 @@ function Card({ info, setMedia }) {
     vote_count,
     release_date,
     id: movie_id,
-    genre_ids
+    genre_ids,
+    media_type,
+    first_air_date,
   } = info;
 
-
+  // console.log(info);
 
   // console.log(info)
   // console.log(setTrending)
@@ -47,7 +49,9 @@ function Card({ info, setMedia }) {
           vote_count,
           vote_average,
           release_date,
-          genre_ids
+          genre_ids,
+          media_type,
+          first_air_date,
         })
       }
     >

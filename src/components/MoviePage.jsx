@@ -4,8 +4,10 @@ import { FaPoo } from "react-icons/fa";
 import { AiFillFire } from "react-icons/ai";
 import { BsFillEmojiNeutralFill } from "react-icons/bs";
 import Genres from "../Genres";
+import axios from "axios";
 
 function MoviePage(props) {
+  // const [tvRecommendations, setTvRecommendations] = useState([]);
   const { id } = useParams();
   const { genres } = Genres;
   const {
@@ -17,7 +19,60 @@ function MoviePage(props) {
     vote_average,
     vote_count,
     genre_ids,
+    first_air_date,
+    media_type,
   } = props.media;
+
+  // console.log(media_type);
+  // const loadLate = () => {
+  //   if (media_type === undefined) {
+  //     console.log("movie");
+  //   } else if (media_type === "tv") {
+  //     console.log("tv");
+  //   }
+  // };
+
+  console.log(movie_id)
+  
+  // if (media_type === undefined) {
+  //   console.log("movie")
+  //   const fetchTrending = async () => {
+  //     const { data } = await axios.get(
+  //       `https://api.themoviedb.org/3/movie/${movie_id}/recommendations?api_key=83bc98823c4c710c5443011ef8e9dbf9&language=en-US&page=1`
+  //     );
+  //     // console.log(data);
+  //     setRecommendations(data.results);
+  //   };
+  //   // fetchTrending()
+  // } else if (media_type === "tv") {
+  //   console.log("tv");
+  // }
+
+  // console.log(media_type === 'tv' ? 'its a tv' : null)
+
+  // const fetchTvRecommendations = async () => {
+  //   const { data } = await axios.get(
+  //     `https://api.themoviedb.org/3/movie/${movie_id}/recommendations?api_key=83bc98823c4c710c5443011ef8e9dbf9&language=en-US&page=1`
+  //   );
+  //   console.log(data);
+  //   setTvRecommendations(data.results);
+  // };
+
+  // // fetchTvRecommendations()
+
+  // useEffect(() => {
+  //   fetchTvRecommendations()
+  // }, [])
+
+  // console.log(tvRecommendations)
+
+  // console.log(recommendations)
+
+  // const loadLate = async () => {
+  //   console.log("loaded");
+  // };
+
+  // loadLate();
 
   // console.log(genre_ids)
 
@@ -36,7 +91,7 @@ function MoviePage(props) {
 
   // console.log(genres)
 
-  const [recommendations, setRecommendations] = useState([]);
+  // const [recommendations, setRecommendations] = useState([]);
 
   //   useEffect(() => {
   //     fetch(
