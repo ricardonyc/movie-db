@@ -183,16 +183,19 @@ a {
 
     .overlay {
       position: absolute;
+      background: black;
+      z-index: 999999;
     }
 
     img {
       position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      left: 0;
+      z-index: 9;
+      // top: 50%;
+      // transform: translateY(-50%);
+      // left: 0;
       height: 100%;
       width: 100%;
-      object-fit: cover;
+      // object-fit: cover;
     }
   }
 
@@ -271,6 +274,18 @@ a {
       .overview {
       }
 
+      .genres--container {
+        display: flex;
+
+        .genre--name {
+          margin: 0.3rem 0.5rem 0.3rem 0;
+          border-radius: 5px;
+          color: white;
+          background: $blue;
+          padding: 0.2rem 0.5rem;
+        }
+      }
+
       .release--date {
         // border: 1px solid red;
         // display:
@@ -331,19 +346,24 @@ a {
 }
 
 .search--container {
-  border: 1px solid red;
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
   max-width: 1400px;
   margin: auto;
 
   .input--container {
     position: relative;
-    // border: 1px solid white;
+    // border: 1px solid red;
+    display: inline;
+    width: 100%;
+    max-width: 400px;
 
     .search--icon {
-      opacity: .4;
+      opacity: 0.4;
       position: absolute;
       top: 50%;
-      left: 5px;
+      left: 7px;
       transform: translateY(-50%);
       color: $blue;
       font-size: 1.4rem;
@@ -352,8 +372,9 @@ a {
     .search--bar {
       // border: 1px solid red;
       border-radius: 15px;
-      padding: 0.2rem 0 0.2rem 2rem;
+      padding: 0.2rem 0 0.2rem 2.2rem;
       border: none;
+      width: 100%;
 
       &:focus {
         outline: none;
@@ -415,8 +436,8 @@ a {
     }
   }
 
-  .trending--container {
-    .trending--section {
+  .card--container {
+    .card--section {
       .movie--card {
         .text--container {
           display: none;

@@ -22,9 +22,8 @@ function MoviePage(props) {
     genre_ids,
     first_air_date,
     media_type,
+    release_date,
   } = props.media;
-
-
 
   // const fetchTvRecommendations = async () => {
   //   const { data } = await axios.get(
@@ -39,6 +38,24 @@ function MoviePage(props) {
   //   fetchTvRecommendations();
   // }, []);
 
+  // console.log(genre_ids);
+
+  // console.log(genres);
+
+  const genresList = [];
+
+  if (genre_ids) {
+    for (let i = 0; i < genres.length; i++) {
+      for (let j = 0; j < genre_ids.length; j++) {
+        if (genres[i].id === genre_ids[j]) {
+          // console.log(genres[i].name);
+          genresList.push(genres[i].name);
+        }
+      }
+    }
+  }
+
+  // console.log(genresList);
 
   const imgUrl = `https://image.tmdb.org/t/p/original${poster_path}`;
 
@@ -49,8 +66,13 @@ function MoviePage(props) {
         <div className="movie--info">
           <h1 className="title">{title ? title : name}</h1>
           <p className="overview">{overview}</p>
+          <div className="genres--container">
+            {genresList.map((item) => {
+              return <p className="genre--name">{item}</p>;
+            })}
+          </div>
           <p className="release--date">
-            {first_air_date ? first_air_date : null}
+            {first_air_date ? first_air_date : release_date}
           </p>
           <div className="rating--section">
             {vote_average >= 9 ? (

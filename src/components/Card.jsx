@@ -19,9 +19,6 @@ function Card({ info, setMedia }) {
   } = info;
 
 
-  // console.log(info)
-  // console.log(setTrending)
-  // console.log(vote_average)
 
   const imgUrl = `https://image.tmdb.org/t/p/original${poster_path}`;
 
@@ -30,7 +27,6 @@ function Card({ info, setMedia }) {
       vote_average >= 8 ? "#62ee81" : vote_average >= 7 ? "#FFA212" : "#FF2222",
   };
 
-  // console.log(id);
 
   return (
     <Link

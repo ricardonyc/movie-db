@@ -196,18 +196,15 @@ a.link {
 
 .home--container .one .overlay {
   position: absolute;
+  background: black;
+  z-index: 999999;
 }
 
 .home--container .one img {
   position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  left: 0;
+  z-index: 9;
   height: 100%;
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
 }
 
 .home--container .two {
@@ -286,6 +283,20 @@ a.link {
   max-width: 70%;
 }
 
+.moviepage--container .moviepage--section .movie--info .genres--container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.moviepage--container .moviepage--section .movie--info .genres--container .genre--name {
+  margin: 0.3rem 0.5rem 0.3rem 0;
+  border-radius: 5px;
+  color: white;
+  background: #0e3356;
+  padding: 0.2rem 0.5rem;
+}
+
 .moviepage--container .moviepage--section .movie--info .release--date {
   margin: 0.2rem 0;
   font-weight: 600;
@@ -322,20 +333,29 @@ a.link {
 }
 
 .search--container {
-  border: 1px solid red;
+  border: 1px solid white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   max-width: 1400px;
   margin: auto;
 }
 
 .search--container .input--container {
   position: relative;
+  display: inline;
+  width: 100%;
+  max-width: 400px;
 }
 
 .search--container .input--container .search--icon {
-  opacity: .4;
+  opacity: 0.4;
   position: absolute;
   top: 50%;
-  left: 5px;
+  left: 7px;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   color: #0e3356;
@@ -344,8 +364,9 @@ a.link {
 
 .search--container .input--container .search--bar {
   border-radius: 15px;
-  padding: 0.2rem 0 0.2rem 2rem;
+  padding: 0.2rem 0 0.2rem 2.2rem;
   border: none;
+  width: 100%;
 }
 
 .search--container .input--container .search--bar:focus {
@@ -404,7 +425,7 @@ a.link {
     margin: 1rem 0.8rem !important;
     padding: 0.5rem 0 0.5rem 1rem !important;
   }
-  .trending--container .trending--section .movie--card .text--container {
+  .card--container .card--section .movie--card .text--container {
     display: none;
   }
   .moviepage--container {

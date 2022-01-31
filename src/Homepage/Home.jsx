@@ -495,33 +495,34 @@ function Home(props) {
     const randomNum = Math.floor(Math.random() * results.length);
     randomArticles.push(results[randomNum]);
   }
-  console.log(randomArticles);
+  // console.log(randomArticles);
+
+  console.log(data.results);
 
   return (
     <div className="home--container">
       {/* <h1>home</h1> */}
       <div className="one">
         <div className="overlay"></div>
-        <h1>{randomArticles[0].display_title}</h1>
-        <img src={randomArticles[0].multimedia.src} alt="" />
+        <h1>{data.results[0].title}</h1>
+        <img src={data.results[0].multimedia.src} alt="" />
       </div>
       <div className="two">
-        <h1>{randomArticles[1].display_title}</h1>
-        <img src={randomArticles[1].multimedia.src} alt="" />
+        <h1>{data.results[1].title}</h1>
+        <img src={data.results[1].multimedia.src} alt="" />
       </div>
       <div className="three">
-        <h1>{randomArticles[2].display_title}</h1>
-        <img src={randomArticles[2].multimedia.src} alt="" />
+        {/* <h1>{data.results[2].title}</h1>
+        <img src={data.results[2].multimedia.src} alt="" /> */}
       </div>
       <div className="four">
-        <h1>{randomArticles[3].display_title}</h1>
-        <img src={randomArticles[3].multimedia.src} alt="" />
+        {/* <h1>{randomArticles[3].display_title}</h1>
+        <img src={randomArticles[3].multimedia.src} alt="" /> */}
       </div>
       <div className="five">
-        <h1>{randomArticles[4].display_title}</h1>
-        <img src={randomArticles[4].multimedia.src} alt="" />
+        {/* <h1>{randomArticles[4].display_title}</h1>
+        <img src={randomArticles[4].multimedia.src} alt="" /> */}
       </div>
-      
     </div>
   );
 }

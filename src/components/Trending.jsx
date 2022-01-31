@@ -55,6 +55,8 @@ function Trending(props) {
 
   // console.log(foundGenres);
 
+  console.log(trending)
+
   return (
     <div className="card--container">
       <div className="card--section">
