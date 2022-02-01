@@ -15,7 +15,6 @@ import genres from "./Genres";
 function App() {
   const [media, setMedia] = useState([]);
   const [recommendations, setRecommendations] = useState([]);
-  // const [nowPlaying, setNowPlaying] = useState([]);
 
   // console.log(trending);
   // trending state becomes empty when page is refreshed

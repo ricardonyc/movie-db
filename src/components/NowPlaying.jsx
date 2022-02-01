@@ -60,10 +60,11 @@ function NowPlaying(props) {
 
   return (
     <div className="card--container">
-      <label htmlFor="high" style={{ color: "white" }}>
+      <h2 className="top--h2">In Theaters Now</h2>
+      {/* <label htmlFor="high" style={{ color: "white" }}>
         Highest to Lowest rated
       </label>
-      <input type="checkbox" checked={checked} onChange={toggleSort} />
+      <input type="checkbox" checked={checked} onChange={toggleSort} /> */}
 
       <div className="card--section">
         {loading ? (

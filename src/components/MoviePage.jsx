@@ -27,41 +27,37 @@ function MoviePage(props) {
     release_date,
   } = props.media;
 
-  console.log(media_type);
-
-  // console.log(media_type);
-
-  // console.log(props.recommendations);
-
   const fetchMovieRecommendations = async () => {
     const { data } = await axios.get(
       `https://api.themoviedb.org/3/movie/${movie_id}/recommendations?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
     );
-    console.log(data);
+    // console.log(data);
     props.setRecommendations(data.results);
   };
 
-  // fetchTvRecommendations()
+  // calls for movie recommendations
   useEffect(() => {
-    fetchMovieRecommendations();
+    if (media_type === undefined) {
+      fetchMovieRecommendations();
+    }
   }, []);
 
-  // const fetchTvRecommendations = async () => {
-  //   const { data } = await axios.get(
-  //     `https://api.themoviedb.org/3/tv/${movie_id}/recommendations?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
-  //   );
-  //   console.log(data);
-  //   props.setRecommendations(data.results);
-  // };
+  const fetchTvRecommendations = async () => {
+    const { data } = await axios.get(
+      `https://api.themoviedb.org/3/tv/${movie_id}/similar?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+    );
+    console.log(data.results);
+    props.setRecommendations(data.results);
+  };
 
-  // // fetchTvRecommendations()
-  // useEffect(() => {
-  //   fetchTvRecommendations();
-  // }, []);
+  // calls for tv show recommendations
+  useEffect(() => {
+    if (media_type === "tv") {
+      fetchTvRecommendations();
+    }
+  }, []);
 
-  // console.log(genre_ids);
-
-  // console.log(genres);
+  console.log(props.cast);
 
   const genresList = [];
   if (genre_ids) {
@@ -76,7 +72,7 @@ function MoviePage(props) {
   }
 
   // visible === props.recommendations.length : hide button
-  console.log(props.recommendations);
+  // console.log(props.recommendations);
 
   const showMoreItems = () => {
     setVisible((prev) => prev + 5);
@@ -119,17 +115,23 @@ function MoviePage(props) {
           <p>{movie_id ? movie_id : null}</p>
         </div>
       </div>
-      {/* <div className="recommendations--container">
-        {props.recommendations.map((item) => {
-          return <Card info={item} key={item.id} />;
-        })}
-      </div> */}
+
+      <div className="cast--container"></div>
+
       <div className="recommendations--section">
         <h2>Recommended</h2>
         <div className="recommendation--cards">
-          {props.recommendations.slice(0, visible).map((movie) => {
-            return <MoviePageCard key={movie.id} info={movie} />;
-          })}
+          {/* if NO recommendations, returns SVG */}
+          {props.recommendations.length > 0 ? (
+            props.recommendations.slice(0, visible).map((movie) => {
+              return <MoviePageCard key={movie.id} info={movie} />;
+            })
+          ) : (
+            <img
+              src="https://i.pinimg.com/originals/26/da/36/26da36fa5b621bd90b0a7ec755833ea9.png"
+              alt=""
+            />
+          )}
         </div>
 
         {visible < props.recommendations.length ? (

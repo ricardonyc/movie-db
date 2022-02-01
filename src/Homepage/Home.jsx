@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from "react";
 import HomeGrid from "./HomeGrid";
+import NewsCard from "./NewsCard";
 
 function Home(props) {
   const data = {
-    status: "OK",
-    copyright:
-      "Copyright (c) 2022 The New York Times Company. All Rights Reserved.",
-    has_more: true,
-    num_results: 20,
     results: [
       {
         display_title: "The Fallout",
@@ -497,12 +493,15 @@ function Home(props) {
   }
   // console.log(randomArticles);
 
-  console.log(data.results);
+  // console.log(data.results);
 
   return (
     <div className="home--container">
+      {data.results.map((item) => {
+        return <NewsCard key={item.display_title} info={item} />;
+      })}
       {/* <h1>home</h1> */}
-      <div className="one">
+      {/* <div className="one">
         <div className="overlay"></div>
         <h1>{data.results[0].title}</h1>
         <img src={data.results[0].multimedia.src} alt="" />
@@ -512,17 +511,17 @@ function Home(props) {
         <img src={data.results[1].multimedia.src} alt="" />
       </div>
       <div className="three">
-        {/* <h1>{data.results[2].title}</h1>
-        <img src={data.results[2].multimedia.src} alt="" /> */}
+        <h1>{data.results[2].title}</h1>
+        <img src={data.results[2].multimedia.src} alt="" />
       </div>
       <div className="four">
-        {/* <h1>{randomArticles[3].display_title}</h1>
-        <img src={randomArticles[3].multimedia.src} alt="" /> */}
+        <h1>{randomArticles[3].display_title}</h1>
+        <img src={randomArticles[3].multimedia.src} alt="" />
       </div>
       <div className="five">
-        {/* <h1>{randomArticles[4].display_title}</h1>
-        <img src={randomArticles[4].multimedia.src} alt="" /> */}
-      </div>
+        <h1>{randomArticles[4].display_title}</h1>
+        <img src={randomArticles[4].multimedia.src} alt="" />
+      </div> */}
     </div>
   );
 }

@@ -6,6 +6,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 function TvShows(props) {
   const [tvShows, setTvShows] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [tvRecommendations, setTvRecommendations] = useState([]);
 
   const fetchTrending = async () => {
     // setLoading(true);
@@ -16,6 +17,18 @@ function TvShows(props) {
     setTvShows(data.results);
     // setLoading(false);
   };
+
+  // console.log(tvShows)
+
+  // const fetchTrending = async () => {
+  //   // setLoading(true);
+  //   const { data } = await axios.get(
+  //     `https://api.themoviedb.org/3/tv/${tv_id}/recommendations?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+  //   );
+
+  //   setTvShows(data.results);
+  //   // setLoading(false);
+  // };
 
   useEffect(() => {
     // fetchTrending();
@@ -33,6 +46,7 @@ function TvShows(props) {
 
   return (
     <div className="card--container">
+      <h2 className="top--h2">Hottest TV Shows Today</h2>
       <div className="card--section">
         {loading ? (
           <CircularProgress className="spinner" style={spinnerStyling} />

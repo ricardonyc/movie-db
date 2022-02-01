@@ -51,7 +51,7 @@ function Card({ info, setMedia }) {
       }
     >
       <div className="movie--card">
-        <img src={imgUrl} alt="" />
+        <img src={imgUrl} alt="" /> 
         <p className="rating" style={ratingColor}>
           {vote_average}
         </p>
@@ -59,7 +59,6 @@ function Card({ info, setMedia }) {
           <h2>{title ? title : name}</h2>
           <p>{overview}</p>
         </div>
-        {/* <MoviePage info={info} /> */}
       </div>
     </Link>
   );
