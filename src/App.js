@@ -33,7 +33,7 @@ function App() {
     localStorage.setItem("media-list", JSON.stringify(media));
   });
 
-  // Saving recommendations in local storage 
+  // Saving recommendations in local storage
   useEffect(() => {
     const recommendationsData = localStorage.getItem("recommendations-list");
     if (recommendationsData) {
@@ -69,7 +69,11 @@ function App() {
           <Route
             path={`/:page/:id`}
             element={
-              <MoviePage media={media} recommendations={recommendations} setRecommendations={setRecommendations} />
+              <MoviePage
+                media={media}
+                recommendations={recommendations}
+                setRecommendations={setRecommendations}
+              />
             }
           />
 

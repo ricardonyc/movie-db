@@ -5,10 +5,12 @@ import { AiFillFire } from "react-icons/ai";
 import { BsFillEmojiNeutralFill } from "react-icons/bs";
 import Genres from "../Genres";
 import axios from "axios";
-import Card from "./Card";
+import MoviePageCard from "./MoviePageCard";
+import { PinDropSharp } from "@mui/icons-material";
 
 function MoviePage(props) {
-  const [tvRecommendations, setTvRecommendations] = useState([]);
+  // const [tvRecommendations, setTvRecommendations] = useState([]);
+  const [visible, setVisible] = useState(4);
   const { id } = useParams();
   const { genres } = Genres;
   const {
@@ -25,9 +27,28 @@ function MoviePage(props) {
     release_date,
   } = props.media;
 
+  console.log(media_type);
+
+  // console.log(media_type);
+
+  // console.log(props.recommendations);
+
+  const fetchMovieRecommendations = async () => {
+    const { data } = await axios.get(
+      `https://api.themoviedb.org/3/movie/${movie_id}/recommendations?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+    );
+    console.log(data);
+    props.setRecommendations(data.results);
+  };
+
+  // fetchTvRecommendations()
+  useEffect(() => {
+    fetchMovieRecommendations();
+  }, []);
+
   // const fetchTvRecommendations = async () => {
   //   const { data } = await axios.get(
-  //     `https://api.themoviedb.org/3/movie/${movie_id}/recommendations?api_key=83bc98823c4c710c5443011ef8e9dbf9&language=en-US&page=1`
+  //     `https://api.themoviedb.org/3/tv/${movie_id}/recommendations?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
   //   );
   //   console.log(data);
   //   props.setRecommendations(data.results);
@@ -43,7 +64,6 @@ function MoviePage(props) {
   // console.log(genres);
 
   const genresList = [];
-
   if (genre_ids) {
     for (let i = 0; i < genres.length; i++) {
       for (let j = 0; j < genre_ids.length; j++) {
@@ -55,7 +75,15 @@ function MoviePage(props) {
     }
   }
 
+  // visible === props.recommendations.length : hide button
+  console.log(props.recommendations);
+
+  const showMoreItems = () => {
+    setVisible((prev) => prev + 4);
+  };
+
   // console.log(genresList);
+  // console.log(props.recommendations);
 
   const imgUrl = `https://image.tmdb.org/t/p/original${poster_path}`;
 
@@ -64,7 +92,9 @@ function MoviePage(props) {
       <div className="moviepage--section">
         <img src={imgUrl} alt="" />
         <div className="movie--info">
-          <h1 className="title">{title ? title : name}</h1>
+          <h1 className="title">
+            {title ? title : name} ({media_type ? "TV" : "Movie"}){" "}
+          </h1>
           <p className="overview">{overview}</p>
           <div className="genres--container">
             {genresList.map((item) => {
@@ -94,6 +124,18 @@ function MoviePage(props) {
           return <Card info={item} key={item.id} />;
         })}
       </div> */}
+      <div className="recommendations--section">
+        <h2>Recommended</h2>
+        <div className="recommendation--cards">
+          {props.recommendations.slice(0, visible).map((movie) => {
+            return <MoviePageCard key={movie.id} info={movie} />;
+          })}
+        </div>
+
+        {visible < props.recommendations.length ? (
+          <button onClick={showMoreItems}>More</button>
+        ) : null}
+      </div>
     </div>
   );
 }

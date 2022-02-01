@@ -50,9 +50,9 @@ function Nav(props) {
           <Link to="now_playing" style={underline}>
             <li>Now Playing</li>
           </Link>
-          <Link to="search" style={underline}>
+          {/* <Link to="search" style={underline}>
             <li>Search</li>
-          </Link>
+          </Link> */}
         </ul>
       </nav>
     </div>

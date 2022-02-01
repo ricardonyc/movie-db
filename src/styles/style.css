@@ -290,7 +290,7 @@ a.link {
 }
 
 .moviepage--container .moviepage--section .movie--info .genres--container .genre--name {
-  margin: 0.3rem 0.5rem 0.3rem 0;
+  margin: 0.4rem 0.5rem 0.4rem 0;
   border-radius: 5px;
   color: white;
   background: #0e3356;
@@ -330,6 +330,85 @@ a.link {
   grid-area: img;
   max-width: 30%;
   border-radius: 5px 0 0 5px;
+}
+
+.moviepage--container .recommendations--section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 2rem 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.moviepage--container .recommendations--section h2 {
+  border-top: 1px solid #62ee81;
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.moviepage--container .recommendations--section .recommendation--cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.moviepage--container .recommendations--section .recommendation--cards .moviepage--card {
+  width: 220px;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0.4rem;
+}
+
+.moviepage--container .recommendations--section .recommendation--cards .moviepage--card .card--text {
+  width: 100%;
+}
+
+.moviepage--container .recommendations--section .recommendation--cards .moviepage--card img {
+  width: 100%;
+  max-width: 200px;
+}
+
+.moviepage--container .recommendations--section button {
+  cursor: pointer;
+  background: #62ee81;
+  color: #0e3356;
+  border: none;
+  border-radius: 2px;
+  padding: 0.2rem 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  width: 100%;
+  max-width: 300px;
 }
 
 .search--container {
