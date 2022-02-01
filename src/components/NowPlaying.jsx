@@ -38,18 +38,18 @@ function NowPlaying(props) {
   // when you click checkbox, it gets an attribute of "CHECKED"
   // and that evaluates to a boolean
 
-  const toggleSort = (e) => {
-    setChecked((prev) => !prev);
-    // setSorted((prev) => !prev);
-    // take in the checked value of input
-    // if true (checked) then run the setData function and sort
-    // if false (not checked) then run the other function that sets to the original
-    setNowPlaying(
-      nowPlaying
-        .sort((item1, item2) => item1.vote_average - item2.vote_average)
-        .reverse()
-    );
-  };
+  // const toggleSort = (e) => {
+  //   setChecked((prev) => !prev);
+  //   // setSorted((prev) => !prev);
+  //   // take in the checked value of input
+  //   // if true (checked) then run the setData function and sort
+  //   // if false (not checked) then run the other function that sets to the original
+  //   setNowPlaying(
+  //     nowPlaying
+  //       .sort((item1, item2) => item1.vote_average - item2.vote_average)
+  //       .reverse()
+  //   );
+  // };
 
   const spinnerStyling = {
     width: "4rem",

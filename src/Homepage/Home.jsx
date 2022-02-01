@@ -485,43 +485,19 @@ function Home(props) {
   };
 
   const results = data.results;
-  const randomArticles = [];
+  // const randomArticles = [];
 
-  for (let i = 0; i < 5; i++) {
-    const randomNum = Math.floor(Math.random() * results.length);
-    randomArticles.push(results[randomNum]);
-  }
-  // console.log(randomArticles);
+  // for (let i = 0; i < 5; i++) {
+  //   const randomNum = Math.floor(Math.random() * results.length);
+  //   randomArticles.push(results[randomNum]);
+  // }
 
-  // console.log(data.results);
 
   return (
     <div className="home--container">
-      {data.results.map((item) => {
+      {results.map((item) => {
         return <NewsCard key={item.display_title} info={item} />;
       })}
-      {/* <h1>home</h1> */}
-      {/* <div className="one">
-        <div className="overlay"></div>
-        <h1>{data.results[0].title}</h1>
-        <img src={data.results[0].multimedia.src} alt="" />
-      </div>
-      <div className="two">
-        <h1>{data.results[1].title}</h1>
-        <img src={data.results[1].multimedia.src} alt="" />
-      </div>
-      <div className="three">
-        <h1>{data.results[2].title}</h1>
-        <img src={data.results[2].multimedia.src} alt="" />
-      </div>
-      <div className="four">
-        <h1>{randomArticles[3].display_title}</h1>
-        <img src={randomArticles[3].multimedia.src} alt="" />
-      </div>
-      <div className="five">
-        <h1>{randomArticles[4].display_title}</h1>
-        <img src={randomArticles[4].multimedia.src} alt="" />
-      </div> */}
     </div>
   );
 }

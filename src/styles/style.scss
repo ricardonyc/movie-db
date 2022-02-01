@@ -144,7 +144,7 @@ a {
           font-size: 0.8rem;
           display: -webkit-box;
           overflow: hidden;
-          -webkit-line-clamp: 8;
+          -webkit-line-clamp: 5;
           -webkit-box-orient: vertical;
         }
 
@@ -171,11 +171,12 @@ a {
   flex-wrap: wrap;
 
   .news--card {
-    border-radius: 3px;
+    border-radius: 4px;
     overflow: hidden;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
     max-width: 500px;
     background: white;
+    position: relative;
 
     img {
       width: 100%;
@@ -253,10 +254,13 @@ a {
 
         .neutral,
         .fire,
-        .poo,
-        .recommended {
+        .poo {
           margin: 0.2rem 0.5rem 0.2rem 0;
           font-size: 1.4rem;
+        }
+
+        .recommended {
+          font-size: 0.9rem;
         }
       }
     }

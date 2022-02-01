@@ -172,7 +172,7 @@ a.link {
   font-size: 0.8rem;
   display: -webkit-box;
   overflow: hidden;
-  -webkit-line-clamp: 8;
+  -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
 }
 
@@ -202,12 +202,13 @@ a.link {
 }
 
 .home--container .news--card {
-  border-radius: 3px;
+  border-radius: 4px;
   overflow: hidden;
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
   max-width: 500px;
   background: white;
+  position: relative;
 }
 
 .home--container .news--card img {
@@ -296,10 +297,13 @@ a.link {
 
 .moviepage--container .moviepage--section .movie--info .rating--section .neutral,
 .moviepage--container .moviepage--section .movie--info .rating--section .fire,
-.moviepage--container .moviepage--section .movie--info .rating--section .poo,
-.moviepage--container .moviepage--section .movie--info .rating--section .recommended {
+.moviepage--container .moviepage--section .movie--info .rating--section .poo {
   margin: 0.2rem 0.5rem 0.2rem 0;
   font-size: 1.4rem;
+}
+
+.moviepage--container .moviepage--section .movie--info .rating--section .recommended {
+  font-size: 0.9rem;
 }
 
 .moviepage--container .moviepage--section img {

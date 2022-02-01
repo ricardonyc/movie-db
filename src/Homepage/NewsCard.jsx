@@ -12,16 +12,13 @@ function NewsCard(props) {
     mpaa_rating,
   } = props.info;
 
-//   console.log(props.info);
+  //   console.log(props.info);
 
   return (
     <div className="news--card">
       <img src={multimedia.src} alt="" />
       <div className="text--container">
-        <h2>
-          {headline}
-          
-        </h2>
+        <h2>{headline}</h2>
         <p>{summary_short}</p>
         <a href={link.url} target="_blank">
           {link.suggested_link_text}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { FaPoo } from "react-icons/fa";
 import { AiFillFire } from "react-icons/ai";
@@ -6,10 +6,11 @@ import { BsFillEmojiNeutralFill } from "react-icons/bs";
 import Genres from "../Genres";
 import axios from "axios";
 import MoviePageCard from "./MoviePageCard";
-import { PinDropSharp } from "@mui/icons-material";
+import { RecommendationsContext } from "../App";
+// import { PinDropSharp } from "@mui/icons-material";
 
 function MoviePage(props) {
-  // const [tvRecommendations, setTvRecommendations] = useState([]);
+  const recommendations = useContext(RecommendationsContext);
   const [visible, setVisible] = useState(5);
   const { id } = useParams();
   const { genres } = Genres;
@@ -26,6 +27,8 @@ function MoviePage(props) {
     media_type,
     release_date,
   } = props.media;
+
+  // console.log(recommendations);
 
   const fetchMovieRecommendations = async () => {
     const { data } = await axios.get(
@@ -46,7 +49,7 @@ function MoviePage(props) {
     const { data } = await axios.get(
       `https://api.themoviedb.org/3/tv/${movie_id}/similar?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
     );
-    console.log(data.results);
+    // console.log(data.results);
     props.setRecommendations(data.results);
   };
 
@@ -56,8 +59,6 @@ function MoviePage(props) {
       fetchTvRecommendations();
     }
   }, []);
-
-  console.log(props.cast);
 
   const genresList = [];
   if (genre_ids) {
@@ -77,9 +78,6 @@ function MoviePage(props) {
   const showMoreItems = () => {
     setVisible((prev) => prev + 5);
   };
-
-  // console.log(genresList);
-  // console.log(props.recommendations);
 
   const imgUrl = `https://image.tmdb.org/t/p/original${poster_path}`;
 
@@ -102,7 +100,7 @@ function MoviePage(props) {
           </p>
           <div className="rating--section">
             {vote_average >= 9 ? (
-              <p className="recommended">Recommended |</p>
+              <p className="recommended">Recommended | </p>
             ) : vote_average >= 8 ? (
               <AiFillFire className="fire" />
             ) : vote_average >= 7 ? (
@@ -112,7 +110,7 @@ function MoviePage(props) {
             )}
             {vote_average ? vote_average : null}
           </div>
-          <p>{movie_id ? movie_id : null}</p>
+          {/* <p>{movie_id ? movie_id : null}</p> */}
         </div>
       </div>
 
@@ -122,8 +120,8 @@ function MoviePage(props) {
         <h2>Recommended</h2>
         <div className="recommendation--cards">
           {/* if NO recommendations, returns SVG */}
-          {props.recommendations.length > 0 ? (
-            props.recommendations.slice(0, visible).map((movie) => {
+          {recommendations.length > 0 ? (
+            recommendations.slice(0, visible).map((movie) => {
               return <MoviePageCard key={movie.id} info={movie} />;
             })
           ) : (
@@ -134,7 +132,7 @@ function MoviePage(props) {
           )}
         </div>
 
-        {visible < props.recommendations.length ? (
+        {visible < recommendations.length ? (
           <button onClick={showMoreItems}>More</button>
         ) : null}
       </div>
