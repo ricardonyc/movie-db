@@ -1,9 +1,10 @@
-import React from "react";
-// import { BrowserRouter as}
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import MoviePage from "./MoviePage";
+import { RecommendationsContext } from "../App";
 
-function Card({ info, setMedia }) {
+function Card({ info }) {
+  const { setMedia } = useContext(RecommendationsContext);
+
   const {
     title,
     name,
@@ -18,8 +19,6 @@ function Card({ info, setMedia }) {
     first_air_date,
   } = info;
 
-
-
   const imgUrl = `https://image.tmdb.org/t/p/original${poster_path}`;
 
   const ratingColor = {
@@ -27,13 +26,10 @@ function Card({ info, setMedia }) {
       vote_average >= 8 ? "#62ee81" : vote_average >= 7 ? "#FFA212" : "#FF2222",
   };
 
-
   return (
     <Link
       to={`${movie_id}`}
       className="link"
-      // using the setTrending function to set the new state of 'trending' in App.js
-      // to pass data into MOVIEPAGE component
       onClick={() =>
         setMedia({
           movie_id,
@@ -51,7 +47,7 @@ function Card({ info, setMedia }) {
       }
     >
       <div className="movie--card">
-        <img src={imgUrl} alt="" /> 
+        <img src={imgUrl} alt="" />
         <p className="rating" style={ratingColor}>
           {vote_average}
         </p>

@@ -45,7 +45,7 @@ function Trending(props) {
                 key={movie.id}
                 genre={movie.genre_ids}
                 // sending 'setTrending' state function into the CARD component
-                setMedia={props.setMedia}
+                // setMedia={props.setMedia}
               />
             );
           })

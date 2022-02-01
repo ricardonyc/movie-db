@@ -9,7 +9,9 @@ import MoviePageCard from "./MoviePageCard";
 import { RecommendationsContext } from "../App";
 
 function MoviePage(props) {
-  const recommendations = useContext(RecommendationsContext);
+  const { recommendations, media, setRecommendations } = useContext(
+    RecommendationsContext
+  );
   const [visible, setVisible] = useState(4);
   // const { id } = useParams();
   const { genres } = Genres;
@@ -25,22 +27,20 @@ function MoviePage(props) {
     first_air_date,
     media_type,
     release_date,
-  } = props.media;
+  } = media;
 
   const fetchMovieRecommendations = async () => {
     const { data } = await axios.get(
       `https://api.themoviedb.org/3/movie/${movie_id}/recommendations?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
     );
-    // console.log(data);
-    props.setRecommendations(data.results);
+    setRecommendations(data.results);
   };
 
   const fetchTvRecommendations = async () => {
     const { data } = await axios.get(
       `https://api.themoviedb.org/3/tv/${movie_id}/similar?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
     );
-    // console.log(data.results);
-    props.setRecommendations(data.results);
+    setRecommendations(data.results);
   };
 
   useEffect(() => {
@@ -51,26 +51,18 @@ function MoviePage(props) {
     }
   }, []);
 
-  // calls for tv show recommendations
-  // useEffect(() => {
-  //   if (media_type === "tv") {
-  //     fetchTvRecommendations();
-  //   }
-  // }, []);
-
   const genresList = [];
   if (genre_ids) {
     for (let i = 0; i < genres.length; i++) {
       for (let j = 0; j < genre_ids.length; j++) {
         if (genres[i].id === genre_ids[j]) {
-          // console.log(genres[i].name);
           genresList.push(genres[i].name);
         }
       }
     }
   }
 
-  // show more recommendations
+  // recommendations pagination
   const showMoreItems = () => {
     setVisible((prev) => prev + 5);
   };
@@ -110,7 +102,7 @@ function MoviePage(props) {
         </div>
       </div>
 
-      <div className="cast--container"></div>
+      {/* <div className="cast--container"></div> */}
 
       <div className="recommendations--section">
         <h2>Recommended</h2>

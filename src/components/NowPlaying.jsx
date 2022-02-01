@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import Card from "./Card";
 import CircularProgress from "@mui/material/CircularProgress";
+import { RecommendationsContext } from "../App";
 
 function NowPlaying(props) {
   const [nowPlaying, setNowPlaying] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [checked, setChecked] = useState(false);
+  // const [checked, setChecked] = useState(false);
 
   const fetchTrending = async () => {
     const { data } = await axios.get(
@@ -71,9 +72,7 @@ function NowPlaying(props) {
           <CircularProgress className="spinner" style={spinnerStyling} />
         ) : (
           nowPlaying.map((movie) => {
-            return (
-              <Card info={movie} key={movie.id} setMedia={props.setMedia} />
-            );
+            return <Card info={movie} key={movie.id} />;
           })
         )}
       </div>
