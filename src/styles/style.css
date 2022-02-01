@@ -93,6 +93,10 @@ a.link {
   width: 100%;
 }
 
+.card--container .card--section .spinner {
+  margin-top: 5rem;
+}
+
 .card--container .card--section .movie--card {
   margin: 0.5rem;
   position: relative;
@@ -399,6 +403,7 @@ a.link {
 }
 
 .moviepage--container .recommendations--section button {
+  margin-top: 2rem;
   cursor: pointer;
   background: #62ee81;
   color: #0e3356;

@@ -10,7 +10,7 @@ import { PinDropSharp } from "@mui/icons-material";
 
 function MoviePage(props) {
   // const [tvRecommendations, setTvRecommendations] = useState([]);
-  const [visible, setVisible] = useState(4);
+  const [visible, setVisible] = useState(5);
   const { id } = useParams();
   const { genres } = Genres;
   const {
@@ -79,7 +79,7 @@ function MoviePage(props) {
   console.log(props.recommendations);
 
   const showMoreItems = () => {
-    setVisible((prev) => prev + 4);
+    setVisible((prev) => prev + 5);
   };
 
   // console.log(genresList);

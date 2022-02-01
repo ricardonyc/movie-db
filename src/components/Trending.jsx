@@ -2,10 +2,14 @@ import React, { useState, useEffect } from "react";
 import Card from "./Card";
 import axios from "axios";
 import Genres from "../Genres";
+import CircularProgress from "@mui/material/CircularProgress";
+
 // import { FaChartLine } from "react-icons/fa";
 
 function Trending(props) {
   const [trending, setTrending] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   const { genres } = Genres;
   // const [genresList, setGenreList] = useState(genres)
 
@@ -18,7 +22,10 @@ function Trending(props) {
   };
 
   useEffect(() => {
-    fetchTrending();
+    const timer = setTimeout(() => {
+      setLoading(false);
+      fetchTrending();
+    }, 700);
   }, []);
 
   // console.log(trending);
@@ -55,25 +62,34 @@ function Trending(props) {
 
   // console.log(foundGenres);
 
-  console.log(trending)
+  const spinnerStyling = {
+    width: "4rem",
+    height: "4rem",
+    color: "#62ee81",
+  };
+
 
   return (
     <div className="card--container">
       <div className="card--section">
-        {trending.map((movie) => {
-          return (
-            <Card
-              info={movie}
-              key={movie.id}
-              genre={movie.genre_ids}
-              // sending 'setTrending' state function into the CARD component
-              setMedia={props.setMedia}
-            />
-          );
-        })}
+        {loading ? (
+          <CircularProgress className="spinner" style={spinnerStyling} />
+        ) : (
+          trending.map((movie) => {
+            return (
+              <Card
+                info={movie}
+                key={movie.id}
+                genre={movie.genre_ids}
+                // sending 'setTrending' state function into the CARD component
+                setMedia={props.setMedia}
+              />
+            );
+          })
+        )}
       </div>
     </div>
   );
 }
- 
+
 export default Trending;

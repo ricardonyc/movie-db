@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Card from "./Card";
+import CircularProgress from "@mui/material/CircularProgress";
 
 function NowPlaying(props) {
   const [nowPlaying, setNowPlaying] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [checked, setChecked] = useState(false);
 
   const fetchTrending = async () => {
@@ -15,7 +17,10 @@ function NowPlaying(props) {
   };
 
   useEffect(() => {
-    fetchTrending();
+    const timer = setTimeout(() => {
+      setLoading(false);
+      fetchTrending();
+    }, 700);
   }, []);
 
   // console.log(nowPlaying);
@@ -45,6 +50,12 @@ function NowPlaying(props) {
         .reverse()
     );
   };
+
+  const spinnerStyling = {
+    width: "4rem",
+    height: "4rem",
+    color: "#62ee81",
+  };
   // console.log(checked ? "CHECKED" : "not checked");
 
   return (
@@ -55,9 +66,15 @@ function NowPlaying(props) {
       <input type="checkbox" checked={checked} onChange={toggleSort} />
 
       <div className="card--section">
-        {nowPlaying.map((movie) => {
-          return <Card info={movie} key={movie.id} setMedia={props.setMedia} />;
-        })}
+        {loading ? (
+          <CircularProgress className="spinner" style={spinnerStyling} />
+        ) : (
+          nowPlaying.map((movie) => {
+            return (
+              <Card info={movie} key={movie.id} setMedia={props.setMedia} />
+            );
+          })
+        )}
       </div>
     </div>
   );

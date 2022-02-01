@@ -79,6 +79,10 @@ a {
     padding: 1rem 0 0 0;
     width: 100%;
 
+    .spinner{
+      margin-top: 5rem;
+    }
+
     .movie--card {
       margin: 0.5rem;
       position: relative;
@@ -395,6 +399,7 @@ a {
     }
 
     button {
+      margin-top: 2rem;
       cursor: pointer;
       background: $green;
       color: $blue;
