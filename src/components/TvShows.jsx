@@ -6,7 +6,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 function TvShows(props) {
   const [tvShows, setTvShows] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [tvRecommendations, setTvRecommendations] = useState([]);
+  // const [tvRecommendations, setTvRecommendations] = useState([]);
 
   const fetchTrending = async () => {
     const { data } = await axios.get(

@@ -6,7 +6,7 @@ function NewsCard(props) {
     publication_date,
     display_title,
     headline,
-    link,
+    link, 
     multimedia,
     summary_short,
     mpaa_rating,

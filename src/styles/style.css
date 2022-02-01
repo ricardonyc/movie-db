@@ -193,7 +193,6 @@ a.link {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  color: black;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -207,7 +206,7 @@ a.link {
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
   max-width: 500px;
-  background: white;
+  background: #194e80;
   position: relative;
 }
 
@@ -220,7 +219,7 @@ a.link {
 }
 
 .home--container .news--card .text--container a {
-  color: black;
+  color: #62ee81;
 }
 
 .moviepage--container {
@@ -483,7 +482,7 @@ a.link {
         grid-template-columns: 1fr;
     -ms-grid-rows: 1fr auto;
         grid-template-rows: 1fr auto;
-        grid-template-areas: "img" "text";
+        grid-template-areas: "img" "text";
   }
   .moviepage--container .moviepage--section .movie--info {
     font-size: 0.9rem;
