@@ -11,7 +11,12 @@ function MoviePageCard(props) {
     backdrop_path,
   } = props.info;
 
-  //   console.log(props.info);
+  console.log(props.info);
+
+  const ratingColor = {
+    backgroundColor:
+      vote_average >= 8 ? "#62ee81" : vote_average >= 7 ? "#FFA212" : "#FF2222",
+  };
 
   // console.log(title)
   // console.log(overview)
@@ -24,7 +29,10 @@ function MoviePageCard(props) {
     <div className="moviepage--card">
       <img src={imgUrl} alt="" />
       <div className="card--text">
-          {/* <h4>{title ? title : original_title}</h4> */}
+        {/* <h4>{title ? title : original_title}</h4> */}
+        <p className="rating" style={ratingColor}>
+          {Math.round(vote_average * 10) / 10}
+        </p>
       </div>
     </div>
   );

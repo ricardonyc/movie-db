@@ -105,16 +105,7 @@ a {
       }
 
       .rating {
-        position: absolute;
-        z-index: 99;
-        top: 3px;
-        left: 3px;
-        padding: 0.2rem;
-        font-weight: 700;
-        border-radius: 2px;
-        font-size: 0.8rem;
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
-        color: black;
+        @include rating;
       }
 
       .text--container {
@@ -215,6 +206,7 @@ a {
     .movie--info {
       border-radius: 0 5px 5px 0;
       padding: 1rem;
+      // border: 1px solid red;
       background: $green;
       color: $blue;
       grid-area: text;
@@ -294,18 +286,25 @@ a {
         width: 100%;
         max-width: 600px;
         border-radius: 3px;
+        height: 100%;
       }
 
       .moviepage--card {
-        width: 220px;
-        border-radius: 5px;
         @include flexCenter;
+        width: 220px;
         text-align: center;
         flex-direction: column;
         margin: 0.4rem;
+        position: relative;
 
         .card--text {
           width: 100%;
+
+          .rating {
+            @include rating;
+            left: 15px;
+            padding: 0.1rem 0.2rem;
+          }
         }
 
         img {
@@ -444,6 +443,7 @@ a {
         "text";
 
       .movie--info {
+        font-size: 0.9rem;
         border: 1px solid red;
         grid-area: text;
         max-width: 500px;

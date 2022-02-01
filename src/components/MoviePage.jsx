@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import { FaPoo } from "react-icons/fa";
 import { AiFillFire } from "react-icons/ai";
 import { BsFillEmojiNeutralFill } from "react-icons/bs";
@@ -7,12 +7,11 @@ import Genres from "../Genres";
 import axios from "axios";
 import MoviePageCard from "./MoviePageCard";
 import { RecommendationsContext } from "../App";
-// import { PinDropSharp } from "@mui/icons-material";
 
 function MoviePage(props) {
   const recommendations = useContext(RecommendationsContext);
-  const [visible, setVisible] = useState(5);
-  const { id } = useParams();
+  const [visible, setVisible] = useState(4);
+  // const { id } = useParams();
   const { genres } = Genres;
   const {
     movie_id,
@@ -28,8 +27,6 @@ function MoviePage(props) {
     release_date,
   } = props.media;
 
-  // console.log(recommendations);
-
   const fetchMovieRecommendations = async () => {
     const { data } = await axios.get(
       `https://api.themoviedb.org/3/movie/${movie_id}/recommendations?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
@@ -37,13 +34,6 @@ function MoviePage(props) {
     // console.log(data);
     props.setRecommendations(data.results);
   };
-
-  // calls for movie recommendations
-  useEffect(() => {
-    if (media_type === undefined) {
-      fetchMovieRecommendations();
-    }
-  }, []);
 
   const fetchTvRecommendations = async () => {
     const { data } = await axios.get(
@@ -53,12 +43,20 @@ function MoviePage(props) {
     props.setRecommendations(data.results);
   };
 
-  // calls for tv show recommendations
   useEffect(() => {
-    if (media_type === "tv") {
+    if (media_type === undefined) {
+      fetchMovieRecommendations();
+    } else {
       fetchTvRecommendations();
     }
   }, []);
+
+  // calls for tv show recommendations
+  // useEffect(() => {
+  //   if (media_type === "tv") {
+  //     fetchTvRecommendations();
+  //   }
+  // }, []);
 
   const genresList = [];
   if (genre_ids) {
@@ -72,9 +70,7 @@ function MoviePage(props) {
     }
   }
 
-  // visible === props.recommendations.length : hide button
-  // console.log(props.recommendations);
-
+  // show more recommendations
   const showMoreItems = () => {
     setVisible((prev) => prev + 5);
   };
