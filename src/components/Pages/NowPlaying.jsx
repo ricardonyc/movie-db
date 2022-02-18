@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import Card from "./Card";
+import Card from "../Card";
 import CircularProgress from "@mui/material/CircularProgress";
-import { RecommendationsContext } from "../App";
+import { RecommendationsContext } from "../../App";
 
 function NowPlaying(props) {
   const [nowPlaying, setNowPlaying] = useState([]);

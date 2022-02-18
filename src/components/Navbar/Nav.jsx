@@ -38,14 +38,11 @@ function Nav(props) {
           <Link to="home" style={underline}>
             <li>Home</li>
           </Link>
-          <Link to="movies" style={underline}>
-            <li>Movies</li>
-          </Link>
           <Link to="tv_shows" style={underline}>
             <li>TV Shows</li>
           </Link>
           <Link to="trending" style={underline}>
-            <li>Trending</li>
+            <li>Movies</li>
           </Link>
           <Link to="now_playing" style={underline}>
             <li>Now Playing</li>

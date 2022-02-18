@@ -1,33 +1,15 @@
 import React, { useState, useEffect, useContext } from "react";
-// import { useParams } from "react-router-dom";
-import { FaPoo } from "react-icons/fa";
-import { AiFillFire } from "react-icons/ai";
-import { BsFillEmojiNeutralFill } from "react-icons/bs";
-import Genres from "../Genres";
 import axios from "axios";
-import MoviePageCard from "./MoviePageCard";
 import { RecommendationsContext } from "../App";
+import Recommendations from "./Recommendations";
+import BigCard from "./BigCard";
 
 function MoviePage(props) {
   const { recommendations, media, setRecommendations } = useContext(
     RecommendationsContext
   );
-  const [visible, setVisible] = useState(4);
-  // const { id } = useParams();
-  const { genres } = Genres;
-  const {
-    movie_id,
-    title,
-    name,
-    overview,
-    poster_path,
-    vote_average,
-    vote_count,
-    genre_ids,
-    first_air_date,
-    media_type,
-    release_date,
-  } = media;
+
+  const { movie_id, media_type } = media;
 
   const fetchMovieRecommendations = async () => {
     const { data } = await axios.get(
@@ -43,6 +25,7 @@ function MoviePage(props) {
     setRecommendations(data.results);
   };
 
+  // if media_type is undefined, its a movie
   useEffect(() => {
     if (media_type === undefined) {
       fetchMovieRecommendations();
@@ -51,79 +34,10 @@ function MoviePage(props) {
     }
   }, []);
 
-  const genresList = [];
-  if (genre_ids) {
-    for (let i = 0; i < genres.length; i++) {
-      for (let j = 0; j < genre_ids.length; j++) {
-        if (genres[i].id === genre_ids[j]) {
-          genresList.push(genres[i].name);
-        }
-      }
-    }
-  }
-
-  // recommendations pagination
-  const showMoreItems = () => {
-    setVisible((prev) => prev + 5);
-  };
-
-  const imgUrl = `https://image.tmdb.org/t/p/original${poster_path}`;
-
   return (
     <div className="moviepage--container">
-      <div className="moviepage--section">
-        <img src={imgUrl} alt="" />
-        <div className="movie--info">
-          <h1 className="title">
-            {title ? title : name} ({media_type ? "TV" : "Movie"}){" "}
-          </h1>
-          <p className="overview">{overview}</p>
-          <div className="genres--container">
-            {genresList.map((item) => {
-              return <p className="genre--name">{item}</p>;
-            })}
-          </div>
-          <p className="release--date">
-            {first_air_date ? first_air_date : release_date}
-          </p>
-          <div className="rating--section">
-            {vote_average >= 9 ? (
-              <p className="recommended">Recommended | </p>
-            ) : vote_average >= 8 ? (
-              <AiFillFire className="fire" />
-            ) : vote_average >= 7 ? (
-              <BsFillEmojiNeutralFill className="neutral" />
-            ) : (
-              <FaPoo className="poo" />
-            )}
-            {vote_average ? vote_average : null}
-          </div>
-          {/* <p>{movie_id ? movie_id : null}</p> */}
-        </div>
-      </div>
-
-      {/* <div className="cast--container"></div> */}
-
-      <div className="recommendations--section">
-        <h2>Recommended</h2>
-        <div className="recommendation--cards">
-          {/* if NO recommendations, returns SVG */}
-          {recommendations.length > 0 ? (
-            recommendations.slice(0, visible).map((movie) => {
-              return <MoviePageCard key={movie.id} info={movie} />;
-            })
-          ) : (
-            <img
-              src="https://i.pinimg.com/originals/26/da/36/26da36fa5b621bd90b0a7ec755833ea9.png"
-              alt=""
-            />
-          )}
-        </div>
-
-        {visible < recommendations.length ? (
-          <button onClick={showMoreItems}>More</button>
-        ) : null}
-      </div>
+      <BigCard mediaInfo={media} />
+      <Recommendations recommendations={recommendations} />
     </div>
   );
 }

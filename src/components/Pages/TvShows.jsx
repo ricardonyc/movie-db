@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from "react";
-import Card from "./Card";
 import axios from "axios";
-import Genres from "../Genres";
+import Card from "../Card";
 import CircularProgress from "@mui/material/CircularProgress";
 
-function Trending(props) {
-  const [trending, setTrending] = useState([]);
+function TvShows(props) {
+  const [tvShows, setTvShows] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  const { genres } = Genres;
+  // const [tvRecommendations, setTvRecommendations] = useState([]);
 
   const fetchTrending = async () => {
     const { data } = await axios.get(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1&region=US`
+      `https://api.themoviedb.org/3/trending/tv/day?api_key=${process.env.REACT_APP_TMDB_KEY}`
     );
 
-    setTrending(data.results);
+    setTvShows(data.results);
   };
 
   useEffect(() => {
@@ -33,20 +31,14 @@ function Trending(props) {
 
   return (
     <div className="card--container">
-      <h2 className="top--h2">Trending Movies Today</h2>
+      <h2 className="top--h2">Hottest TV Shows Today</h2>
       <div className="card--section">
         {loading ? (
           <CircularProgress className="spinner" style={spinnerStyling} />
         ) : (
-          trending.map((movie) => {
+          tvShows.map((movie) => {
             return (
-              <Card
-                info={movie}
-                key={movie.id}
-                genre={movie.genre_ids}
-                // sending 'setTrending' state function into the CARD component
-                // setMedia={props.setMedia}
-              />
+              <Card info={movie} key={movie.id} />
             );
           })
         )}
@@ -55,4 +47,4 @@ function Trending(props) {
   );
 }
 
-export default Trending;
+export default TvShows;

@@ -2,11 +2,11 @@ import React, { useState, useEffect, createContext } from "react";
 import "./styles/style.css";
 import Nav from "./components/Navbar/Nav";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Trending from "./components/Trending";
-import Movies from "./components/Movies";
-import NowPlaying from "./components/NowPlaying";
-import TvShows from "./components/TvShows";
-import Search from "./components/Search";
+import Trending from "./components/Pages/Movies";
+import Movies from "./components/Pages/Movies";
+import NowPlaying from "./components/Pages/NowPlaying";
+import TvShows from "./components/Pages/TvShows";
+import Search from "./components/Pages/Search";
 import Home from "./Homepage/Home";
 import MoviePage from "./components/MoviePage";
 // import { ThemeContext } from "@emotion/react";
@@ -62,9 +62,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
-            <Route path="/movies" element={<Movies />} />
+            {/* <Route path="/movies" element={<Movies />} /> */}
             <Route path="/tv_shows" element={<TvShows />} />
-            <Route path="/trending" element={<Trending />} />
+            <Route path="/trending" element={<Movies />} />
             <Route path="/now_playing" element={<NowPlaying />} />
             <Route path={`/:page/:id`} element={<MoviePage />} />
             <Route path="/search" element={<Search />} />
