@@ -74,7 +74,7 @@ a {
   .searchbar--container {
     position: relative;
     // display: inline;
-    width: 30%;
+    width: 40%;
     margin: 1rem auto 0 auto;
 
     .search--icon {
@@ -118,7 +118,7 @@ a {
     }
 
     .movie--card {
-      margin: 0.5rem;
+      margin: $card-margin;
       position: relative;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
       overflow: hidden;
@@ -240,15 +240,13 @@ a {
     flex-wrap: wrap;
 
     .cast--card {
-      // border: 1px solid white;
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin: 1rem;
+      margin: $card-margin;
       height: 100%;
       max-width: $card-image-size;
-      // justify-content: center;
-      // flex-wrap: wrap;
+      overflow: hidden;
 
       img {
         // width: 200px;
@@ -369,7 +367,7 @@ a {
         width: $card-image-size;
         text-align: center;
         flex-direction: column;
-        margin: 0.4rem;
+        margin: $card-margin;
         position: relative;
 
         .card--text {

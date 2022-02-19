@@ -10,6 +10,8 @@ $card-image-size: 220px;
 // font
 $h3-size: 1.6rem;
 
+$card-margin: .4rem;
+
 @mixin flexCenter {
   display: flex;
   justify-content: center;

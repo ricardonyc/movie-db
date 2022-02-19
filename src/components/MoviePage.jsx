@@ -18,7 +18,9 @@ function MoviePage(props) {
     setVisible((prev) => prev + 5);
   };
 
-  console.log(id)
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const fetchMovieRecommendations = async () => {
     const { data } = await axios.get(
@@ -43,7 +45,7 @@ function MoviePage(props) {
 
   // if media_type is undefined, its a movie
   useEffect(() => {
-    if (media_type === undefined || media_type === 'movie') {
+    if (media_type === undefined || media_type === "movie") {
       fetchMovieRecommendations();
       fetchCast();
     } else {
@@ -55,8 +57,6 @@ function MoviePage(props) {
     Aos.init({ duration: 1500, once: true, delay: 20 });
   }, []);
 
-
-
   return (
     <div className="moviepage--container">
       <BigCard movieId={id} mediaInfo={media} />
@@ -66,7 +66,6 @@ function MoviePage(props) {
         {cast.slice(0, visible).map((person) => (
           <CastCards key={person.cast_id} person={person} />
         ))}
-     
       </div>
       {visible < recommendations.length ? (
         <button onClick={showMoreItems}>More Cast</button>
