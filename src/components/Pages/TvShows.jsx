@@ -42,7 +42,7 @@ function TvShows(props) {
             );
           })
         )}
-      </div>
+      </div> 
     </div>
   );
 }

@@ -11,8 +11,6 @@ function MoviePageCard(props) {
     backdrop_path,
   } = props.info;
 
-  console.log(poster_path);
-
   const ratingColor = {
     backgroundColor:
       vote_average >= 8 ? "#62ee81" : vote_average >= 7 ? "#FFA212" : "#FF2222",

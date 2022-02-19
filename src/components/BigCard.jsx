@@ -33,6 +33,15 @@ function BigCard(props) {
     }
   }  
 
+
+  let type_of_media;
+  // checking media type
+  if(media_type === undefined || media_type === 'movie'){
+    type_of_media = 'Movie'
+  } else  {
+    type_of_media = 'TV'
+  }
+
   const imgUrl = `https://image.tmdb.org/t/p/original${poster_path}`;
 
   return (
@@ -40,7 +49,7 @@ function BigCard(props) {
       <img src={imgUrl} alt="" />
       <div className="movie--info">
         <h1 className="title">
-          {title ? title : name} ({media_type ? "TV" : "Movie"}){" "}
+          {title ? title : name} ({type_of_media}){" "}
         </h1>
         <p className="overview">{overview}</p>
 

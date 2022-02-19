@@ -38,13 +38,7 @@ function Trending(props) {
           <CircularProgress className="spinner" style={spinnerStyling} />
         ) : (
           trending.map((movie) => {
-            return (
-              <Card
-                info={movie}
-                key={movie.id}
-                genre={movie.genre_ids}
-              />
-            );
+            return <Card info={movie} key={movie.id} genre={movie.genre_ids} />;
           })
         )}
       </div>

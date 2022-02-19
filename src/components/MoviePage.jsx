@@ -11,37 +11,39 @@ function MoviePage(props) {
   const { recommendations, media, setRecommendations, cast, setCast } =
     useContext(RecommendationsContext);
 
-  const { movie_id, media_type } = media;
+  const { id, media_type } = media;
   const [visible, setVisible] = useState(5);
 
   const showMoreItems = () => {
     setVisible((prev) => prev + 5);
   };
 
+  console.log(id)
+
   const fetchMovieRecommendations = async () => {
     const { data } = await axios.get(
-      `https://api.themoviedb.org/3/movie/${movie_id}/recommendations?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+      `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
     );
     setRecommendations(data.results);
   };
 
   const fetchTvRecommendations = async () => {
     const { data } = await axios.get(
-      `https://api.themoviedb.org/3/tv/${movie_id}/similar?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+      `https://api.themoviedb.org/3/tv/${id}/similar?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
     );
     setRecommendations(data.results);
   };
 
   const fetchCast = async () => {
     const { data } = await axios.get(
-      `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
+      `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
     );
     setCast(data.cast);
   };
 
   // if media_type is undefined, its a movie
   useEffect(() => {
-    if (media_type === undefined) {
+    if (media_type === undefined || media_type === 'movie') {
       fetchMovieRecommendations();
       fetchCast();
     } else {
@@ -57,12 +59,12 @@ function MoviePage(props) {
 
   return (
     <div className="moviepage--container">
-      <BigCard movieId={movie_id} mediaInfo={media} />
+      <BigCard movieId={id} mediaInfo={media} />
 
       <h3 className="cast--h3">Cast</h3>
       <div className="cast--cards__container">
         {cast.slice(0, visible).map((person) => (
-          <CastCards person={person} />
+          <CastCards key={person.cast_id} person={person} />
         ))}
      
       </div>

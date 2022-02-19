@@ -80,6 +80,34 @@ a.link {
   padding-bottom: 3rem;
 }
 
+.card--container .searchbar--container {
+  position: relative;
+  width: 30%;
+  margin: 1rem auto 0 auto;
+}
+
+.card--container .searchbar--container .search--icon {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 7px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  color: gray;
+  font-size: 1.2rem;
+}
+
+.card--container .searchbar--container .search--bar {
+  width: 100%;
+  border-radius: 15px;
+  padding: 0.2rem 0 0.2rem 2.2rem;
+  border: none;
+}
+
+.card--container .searchbar--container .search--bar:focus {
+  outline: none;
+}
+
 .card--container .top--h2 {
   color: white;
   text-align: center;

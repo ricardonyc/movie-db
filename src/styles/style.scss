@@ -71,6 +71,35 @@ a {
   margin: auto;
   padding-bottom: 3rem;
 
+  .searchbar--container {
+    position: relative;
+    // display: inline;
+    width: 30%;
+    margin: 1rem auto 0 auto;
+
+    .search--icon {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      left: 7px;
+      transform: translateY(-50%);
+      color: gray;
+      font-size: 1.2rem;
+    }
+
+    .search--bar {
+      width: 100%;
+      border-radius: 15px;
+      padding: 0.2rem 0 0.2rem 2.2rem;
+      border: none;
+      ///////////////////////////////////////////////////////////////
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
   .top--h2 {
     color: white;
     text-align: center;

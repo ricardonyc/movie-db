@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Card from "../Card";
 import axios from "axios";
 import CircularProgress from "@mui/material/CircularProgress";
+import { FaSearch } from "react-icons/fa";
 
 function Search(props) {
   const [search, setSearch] = useState([]);
@@ -17,19 +18,24 @@ function Search(props) {
 
     setTimeout(() => {
       setLoading(false);
-      setResults(data.results);
+      data.results.length > 0
+        ? setResults(data.results)
+        : console.log("NOTHING FOUND!");
+      // setResults(data.results);
+      // console.log(data.results)
     }, 700);
   };
 
-  console.log(results);
-
-  // useEffect(() => {
-  //   fetchSearch();
-  //   setLoading(false);
-  // }, [search]);
+  // console.log(results)
 
   const searchHandler = (e) => {
     setSearch(e.target.value);
+  };
+
+  const enterPress = (e) => {
+    if (e.key === "Enter") {
+      fetchSearch();
+    }
   };
 
   const spinnerStyling = {
@@ -40,8 +46,16 @@ function Search(props) {
 
   return (
     <div className="card--container">
-      <input type="text" onChange={searchHandler} />
-      <button onClick={fetchSearch}>Search</button>
+      <div className="searchbar--container">
+        <input
+          className="search--bar"
+          type="text"
+          onChange={searchHandler}
+          onKeyPress={enterPress}
+        />
+        <FaSearch onClick={fetchSearch} className="search--icon" />
+      </div>
+      {/* <button onClick={fetchSearch}>Search</button> */}
       <h2 className="top--h2">Search</h2>
       <div className="card--section">
         {loading ? (

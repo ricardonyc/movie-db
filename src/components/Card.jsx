@@ -13,11 +13,13 @@ function Card({ info }) {
     vote_average,
     vote_count,
     release_date,
-    id: movie_id,
+    id,
     genre_ids,
     media_type,
     first_air_date,
   } = info;
+
+  console.log(info)
 
   const imgUrl = `https://image.tmdb.org/t/p/original${poster_path}`;
 
@@ -26,18 +28,13 @@ function Card({ info }) {
       vote_average >= 8 ? "#62ee81" : vote_average >= 7 ? "#FFA212" : "#FF2222",
   };
 
-
-  // const setMedia = () => {
-
-  // }
-
   return (
     <Link
-      to={`${movie_id}`}
+      to={`${id}`}
       className="link"
       onClick={() =>
         setMedia({
-          movie_id,
+          id,
           title,
           name,
           overview,
@@ -48,11 +45,18 @@ function Card({ info }) {
           genre_ids,
           media_type,
           first_air_date,
-        })
+        }) 
       }
     >
       <div className="movie--card">
-        <img src={imgUrl} alt="" />
+        {poster_path ? (
+          <img src={imgUrl} alt="" />
+        ) : (
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1200px-No-Image-Placeholder.svg.png"
+            alt="NOT FOUND"
+          />
+        )}
         <p className="rating" style={ratingColor}>
           {vote_average}
         </p>
