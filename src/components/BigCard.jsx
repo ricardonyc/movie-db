@@ -22,17 +22,6 @@ function BigCard(props) {
     release_date,
   } = mediaInfo;
 
-//   const fetchCast = async () => {
-//     const { data } = await axios.get(
-//       `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
-//     );
-//     setCast(data.cast);
-//   };
-
-//   useEffect(() => {
-//     fetchCast();
-//   }, []);
-
   const genresList = [];
   if (genre_ids) {
     for (let i = 0; i < genres.length; i++) {

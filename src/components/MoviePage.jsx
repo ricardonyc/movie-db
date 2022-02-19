@@ -11,7 +11,6 @@ function MoviePage(props) {
   const { recommendations, media, setRecommendations, cast, setCast } =
     useContext(RecommendationsContext);
 
-  // const [cast, setCast] = useState([]);
   const { movie_id, media_type } = media;
   const [visible, setVisible] = useState(5);
 
@@ -51,8 +50,10 @@ function MoviePage(props) {
   }, []);
 
   useEffect(() => {
-    Aos.init({ duration: 1500, once: true });
+    Aos.init({ duration: 1500, once: true, delay: 20 });
   }, []);
+
+
 
   return (
     <div className="moviepage--container">

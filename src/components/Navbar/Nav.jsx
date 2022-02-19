@@ -9,13 +9,9 @@ function Nav(props) {
     setSidebar((prev) => !prev);
   }
 
-  // console.log(sidebar);
-
   const underline = {
     textDecoration: "none",
   };
-
-  // when one of the items are clicked, it changes color
 
   return (
     <div className="nav--container">
@@ -47,9 +43,9 @@ function Nav(props) {
           <Link to="now_playing" style={underline}>
             <li>Now Playing</li>
           </Link>
-          {/* <Link to="search" style={underline}>
+          <Link to="search" style={underline}>
             <li>Search</li>
-          </Link> */}
+          </Link>
         </ul>
       </nav>
     </div>

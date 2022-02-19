@@ -466,8 +466,6 @@ a.link {
   -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
           box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
   color: black;
-  left: 15px;
-  padding: 0.1rem 0.2rem;
 }
 
 .moviepage--container .recommendations--section .recommendation--cards .moviepage--card img {
