@@ -100,7 +100,7 @@ a {
 
       img {
         display: block;
-        max-width: 220px;
+        max-width: $card-image-size;
         height: 100%;
       }
 
@@ -191,6 +191,52 @@ a {
   border-radius: 5px;
   overflow: hidden;
   padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  button {
+    @include buttonStyling;
+  }
+
+  .cast--h3 {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: $h3-size;
+  }
+
+  .cast--cards__container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .cast--card {
+      // border: 1px solid white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 1rem;
+      height: 100%;
+      max-width: $card-image-size;
+      // justify-content: center;
+      // flex-wrap: wrap;
+
+      img {
+        // width: 200px;
+        // width: 100%;
+        max-width: $card-image-size;
+        border-radius: 3px;
+        height: 100%;
+      }
+
+      .card--text {
+        margin-top: 0.5rem;
+        text-align: center;
+        max-width: 100%;
+        font-size: 0.9rem;
+      }
+    }
+  }
 
   .moviepage--section {
     position: relative;
@@ -211,10 +257,15 @@ a {
       grid-area: text;
       max-width: 70%;
 
+      .title {
+        font-size: 1.75rem;
+      }
+
       .genres--container {
         display: flex;
 
         .genre--name {
+          font-size: 0.9rem;
           margin: 0.4rem 0.5rem 0.4rem 0;
           border-radius: 5px;
           color: white;
@@ -236,12 +287,13 @@ a {
         border-radius: 3px;
         margin-top: 0.5rem;
         padding: 0.2rem 0.6rem;
+        font-size: 0.9rem;
 
         .neutral,
         .fire,
         .poo {
           margin: 0.2rem 0.5rem 0.2rem 0;
-          font-size: 1.4rem;
+          // font-size: 1.4rem;
         }
 
         .recommended {
@@ -251,8 +303,8 @@ a {
     }
 
     img {
-      grid-area: img;
-      max-width: 30%;
+      // grid-area: img;
+      max-width: 25%;
       border-radius: 5px 0 0 5px;
     }
   }
@@ -263,11 +315,12 @@ a {
     margin: 2rem 0;
     flex-direction: column;
 
-    h2 {
+    h3 {
       border-top: 1px solid $green;
       width: 100%;
       text-align: center;
       padding: 1rem 0;
+      font-size: $h3-size;
     }
 
     .recommendation--cards {
@@ -284,7 +337,7 @@ a {
 
       .moviepage--card {
         @include flexCenter;
-        width: 220px;
+        width: $card-image-size;
         text-align: center;
         flex-direction: column;
         margin: 0.4rem;
@@ -302,23 +355,13 @@ a {
 
         img {
           width: 100%;
-          max-width: 200px;
+          max-width: $card-image-size;
         }
       }
     }
 
     button {
-      margin-top: 2rem;
-      cursor: pointer;
-      background: $green;
-      color: $blue;
-      border: none;
-      border-radius: 2px;
-      padding: 0.3rem 0;
-      font-size: 1rem;
-      font-weight: 600;
-      width: 100%;
-      max-width: 300px;
+      @include buttonStyling;
     }
   }
 }
@@ -358,6 +401,23 @@ a {
 //     }
 //   }
 // }
+
+.error--container {
+  min-height: 85vh;
+  max-width: 1400px;
+  margin: auto;
+
+  img {
+    max-width: 700px;
+    // margin: auto;
+    // @include flexCenter;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+}
 
 @media (max-width: 797px) {
   nav {
@@ -439,23 +499,20 @@ a {
         font-size: 0.9rem;
         // border: 1px solid red;
         grid-area: text;
-        max-width: 500px;
+        max-width: 80%;
         border-radius: 0 0 5px 5px;
         margin-bottom: 2rem;
         padding: 1rem;
-
-        .overview {
-        }
-
-        .rating--section {
-          // border: 1px solid red;
-        }
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
       }
 
       img {
         border-radius: 5px 5px 0 0;
         grid-area: img;
-        max-width: 500px;
+        max-width: 80%;
         float: right;
       }
     }

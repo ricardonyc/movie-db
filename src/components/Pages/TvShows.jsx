@@ -26,7 +26,7 @@ function TvShows(props) {
   const spinnerStyling = {
     width: "4rem",
     height: "4rem",
-    color: "#62ee81",
+    color: "#F0DC4E",
   };
 
   return (

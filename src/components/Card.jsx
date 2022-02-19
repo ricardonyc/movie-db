@@ -26,6 +26,11 @@ function Card({ info }) {
       vote_average >= 8 ? "#62ee81" : vote_average >= 7 ? "#FFA212" : "#FF2222",
   };
 
+
+  // const setMedia = () => {
+
+  // }
+
   return (
     <Link
       to={`${movie_id}`}

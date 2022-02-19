@@ -3,7 +3,7 @@ import MoviePageCard from "./MoviePageCard";
 
 function Recommendations(props) {
   const { recommendations } = props;
-  const [visible, setVisible] = useState(4);
+  const [visible, setVisible] = useState(5);
 
   // recommendations pagination
   const showMoreItems = () => {
@@ -12,7 +12,7 @@ function Recommendations(props) {
 
   return (
     <div className="recommendations--section">
-      <h2>Recommended</h2>
+      <h3>Recommended</h3>
       <div className="recommendation--cards">
         {/* if NO recommendations, returns SVG */}
         {recommendations.length > 0 ? (
@@ -28,7 +28,7 @@ function Recommendations(props) {
       </div>
 
       {visible < recommendations.length ? (
-        <button onClick={showMoreItems}>More</button>
+        <button onClick={showMoreItems}>More Recommended</button>
       ) : null}
     </div>
   );

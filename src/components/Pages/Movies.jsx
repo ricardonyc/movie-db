@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Card from "../Card";
 import axios from "axios";
-import Genres from "../../Genres";
+// import Genres from "../../Genres";
 import CircularProgress from "@mui/material/CircularProgress";
 
 function Trending(props) {
   const [trending, setTrending] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  const { genres } = Genres;
+  // const { genres } = Genres;
 
   const fetchTrending = async () => {
     const { data } = await axios.get(
@@ -28,7 +27,7 @@ function Trending(props) {
   const spinnerStyling = {
     width: "4rem",
     height: "4rem",
-    color: "#62ee81",
+    color: "#F0DC4E",
   };
 
   return (
@@ -44,8 +43,6 @@ function Trending(props) {
                 info={movie}
                 key={movie.id}
                 genre={movie.genre_ids}
-                // sending 'setTrending' state function into the CARD component
-                // setMedia={props.setMedia}
               />
             );
           })

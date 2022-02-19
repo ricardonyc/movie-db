@@ -11,7 +11,6 @@ function MoviePageCard(props) {
     backdrop_path,
   } = props.info;
 
-
   const ratingColor = {
     backgroundColor:
       vote_average >= 8 ? "#62ee81" : vote_average >= 7 ? "#FFA212" : "#FF2222",
@@ -22,7 +21,7 @@ function MoviePageCard(props) {
   }`;
 
   return (
-    <div className="moviepage--card">
+    <div data-aos="fade-up" className="moviepage--card">
       <img src={imgUrl} alt="" />
       <div className="card--text">
         {/* <h4>{title ? title : original_title}</h4> */}

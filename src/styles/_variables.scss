@@ -1,7 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap");
 
-$blue: #0e3356;
+// colors
+$blue: #0c2d4b;
 $green: #62ee81;
+
+// max card image size
+$card-image-size: 220px;
+
+// font
+$h3-size: 1.6rem;
 
 @mixin flexCenter {
   display: flex;
@@ -20,4 +27,18 @@ $green: #62ee81;
   font-size: 0.8rem;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
   color: black;
+}
+
+@mixin buttonStyling {
+  margin-top: 2rem;
+  cursor: pointer;
+  background: $green;
+  color: $blue;
+  border: none;
+  border-radius: 2px;
+  padding: 0.3rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  width: 100%;
+  max-width: 300px;
 }

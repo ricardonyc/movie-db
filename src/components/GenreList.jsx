@@ -6,8 +6,8 @@ function GenreList(props) {
 
   return (
     <div className="genres--container">
-      {genreList.map((item) => {
-        return <p className="genre--name">{item}</p>;
+      {genreList.map((item, index) => {
+        return <p key={index} className="genre--name">{item}</p>;
       })}
     </div>
   );

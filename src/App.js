@@ -9,6 +9,7 @@ import TvShows from "./components/Pages/TvShows";
 import Search from "./components/Pages/Search";
 import Home from "./Homepage/Home";
 import MoviePage from "./components/MoviePage";
+import PageNotFound from "./components/PageNotFound";
 // import { ThemeContext } from "@emotion/react";
 
 export const RecommendationsContext = createContext();
@@ -16,12 +17,15 @@ export const RecommendationsContext = createContext();
 function App() {
   const [media, setMedia] = useState([]);
   const [recommendations, setRecommendations] = useState([]);
+  const [cast, setCast] = useState([]);
 
   const info = {
     recommendations: recommendations,
     media: media,
     setMedia: setMedia,
     setRecommendations: setRecommendations,
+    cast: cast,
+    setCast: setCast,
   };
 
   // state becomes empty when page is refreshed
@@ -42,8 +46,10 @@ function App() {
   // Saving recommendations in local storage
   useEffect(() => {
     const recommendationsData = localStorage.getItem("recommendations-list");
+    const castData = localStorage.getItem("cast-list");
     if (recommendationsData) {
       setRecommendations(JSON.parse(recommendationsData));
+      setCast(JSON.parse(castData));
     }
   }, []);
 
@@ -52,6 +58,7 @@ function App() {
       "recommendations-list",
       JSON.stringify(recommendations)
     );
+    localStorage.setItem("cast-list", JSON.stringify(cast));
   });
 
   return (
@@ -64,10 +71,11 @@ function App() {
             <Route path="/home" element={<Home />} />
             {/* <Route path="/movies" element={<Movies />} /> */}
             <Route path="/tv_shows" element={<TvShows />} />
-            <Route path="/trending" element={<Movies />} />
+            <Route path="/movies" element={<Movies />} />
             <Route path="/now_playing" element={<NowPlaying />} />
             <Route path={`/:page/:id`} element={<MoviePage />} />
             <Route path="/search" element={<Search />} />
+            <Route path="*" element={<PageNotFound />} />
           </Routes>
         </div>
       </RecommendationsContext.Provider>

@@ -3,6 +3,7 @@ import NewsCard from "./NewsCard";
 import axios from "axios";
 import CircularProgress from "@mui/material/CircularProgress";
 
+
 function Home(props) {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
