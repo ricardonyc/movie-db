@@ -5,9 +5,11 @@ import CircularProgress from "@mui/material/CircularProgress";
 import { FaSearch } from "react-icons/fa";
 
 function Search(props) {
-  const [search, setSearch] = useState([]);
+  const [search, setSearch] = useState("");
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [foundNone, setFoundNone] = useState(false);
+  const [isEmpty, setIsEmpty] = useState(true);
 
   const fetchSearch = async () => {
     setLoading(true);
@@ -18,15 +20,12 @@ function Search(props) {
 
     setTimeout(() => {
       setLoading(false);
-      data.results.length > 0
-        ? setResults(data.results)
-        : console.log("NOTHING FOUND!");
+      data.results.length > 0 ? setResults(data.results) : setFoundNone(true);
       // setResults(data.results);
-      // console.log(data.results)
     }, 700);
   };
 
-  // console.log(results)
+  console.log(search);
 
   const searchHandler = (e) => {
     setSearch(e.target.value);
@@ -52,19 +51,31 @@ function Search(props) {
           type="text"
           onChange={searchHandler}
           onKeyPress={enterPress}
+          value={search}
         />
         <FaSearch onClick={fetchSearch} className="search--icon" />
       </div>
-      {/* <button onClick={fetchSearch}>Search</button> */}
       <h2 className="top--h2">Search</h2>
       <div className="card--section">
-        {loading ? (
+        {!search ? (
+          <h1>Start Searching</h1>
+        ) : foundNone ? (
+          <h1>NOTHING FOUND</h1>
+        ) : loading ? (
           <CircularProgress className="spinner" style={spinnerStyling} />
         ) : (
           results.map((result) => {
             return <Card info={result} />;
           })
         )}
+
+        {/* {loading ? (
+          <CircularProgress className="spinner" style={spinnerStyling} />
+        ) : (
+          results.map((result) => {
+            return <Card info={result} />;
+          })
+        )} */}
       </div>
     </div>
   );

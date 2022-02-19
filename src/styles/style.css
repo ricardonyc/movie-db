@@ -597,7 +597,7 @@ a.link {
         grid-template-columns: 1fr;
     -ms-grid-rows: 1fr auto;
         grid-template-rows: 1fr auto;
-        grid-template-areas: "img" "text";
+        grid-template-areas: "img" "text";
   }
   .moviepage--container .moviepage--section .movie--info {
     font-size: 0.9rem;
