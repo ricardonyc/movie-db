@@ -149,11 +149,15 @@ a {
 
     .movie--card {
       // border: 1px solid red;
+      @include flexCenter;
       margin: $card-margin;
       position: relative;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
       overflow: hidden;
-      width: 220px;
+      // width: $card-image-size;
+      width: $card-image-size;
+      border: 1px solid red;
+      /* ////////////////////////////////////////////////////////////////////////// */
 
       &:hover .text--container {
         transform: translateY(0);
@@ -402,6 +406,8 @@ a {
         flex-direction: column;
         margin: $card-margin;
         position: relative;
+        border: 1px solid yellow;
+        /* //////////////////////////////////////////////////////////////////////// */
 
         .card--text {
           width: 100%;

@@ -9,23 +9,27 @@ function Search(props) {
   const [search, setSearch] = useState("");
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [isEmpty, setIsEmpty] = useState(false);
+  const [isEmpty, setIsEmpty] = useState(true);
 
   const fetchSearch = async () => {
     setLoading(true);
+    setIsEmpty(false);
 
-    const { data } = await axios.get(
-      `https://api.themoviedb.org/3/search/multi?api_key=83bc98823c4c710c5443011ef8e9dbf9&language=en-US&query=${search}&page=1&include_adult=false`
-    );
+    const { data } = await axios
+      .get(
+        `https://api.themoviedb.org/3/search/multi?api_key=83bc98823c4c710c5443011ef8e9dbf9&language=en-US&query=${search}&page=1&include_adult=false`
+      )
+      .catch((error) => {
+        setLoading(false);
+        setResults([]);
+      });
 
     setTimeout(() => {
       setLoading(false);
-      setResults(data.results)
+      setResults(data.results);
       // setResults(data.results);
     }, 700);
   };
-
-  console.log(results);
 
   const searchHandler = (e) => {
     setSearch(e.target.value);
@@ -34,7 +38,7 @@ function Search(props) {
   const enterPress = (e) => {
     if (e.key === "Enter") {
       fetchSearch();
-      setIsEmpty(true);
+      setIsEmpty(false);
       setResults([]);
     }
   };
@@ -60,7 +64,7 @@ function Search(props) {
         <FaSearch onClick={fetchSearch} className="search--icon" />
       </div>
       <div className="card--section">
-        {!isEmpty ? (
+        {/* {!isEmpty ? (
           <img className="search--svg" src={img2} alt="" />
         ) : results.length < 1 ? (
           <h2 className="nothing--found">NOTHING FOUND</h2>
@@ -70,6 +74,18 @@ function Search(props) {
           results.map((result) => {
             return <Card key={result.id} info={result} />;
           })
+        )} */}
+
+        {isEmpty ? (
+          <img className="search--svg" src={img2} alt="" />
+        ) : loading ? (
+          <CircularProgress className="spinner" style={spinnerStyling} />
+        ) : results.length > 0 ? (
+          results.map((result) => {
+            return <Card key={result.id} info={result} />;
+          })
+        ) : (
+          <h1 className="nothing--found">nothing found</h1>
         )}
       </div>
     </div>
