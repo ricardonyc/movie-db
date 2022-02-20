@@ -148,10 +148,12 @@ a {
     }
 
     .movie--card {
+      // border: 1px solid red;
       margin: $card-margin;
       position: relative;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
       overflow: hidden;
+      width: 220px;
 
       &:hover .text--container {
         transform: translateY(0);
@@ -161,6 +163,7 @@ a {
         display: block;
         max-width: $card-image-size;
         height: 100%;
+        // border: 1px solid blue;
       }
 
       .rating {
