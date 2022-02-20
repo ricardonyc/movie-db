@@ -95,7 +95,8 @@ a.link {
 
 .card--container .searchbar--container {
   position: relative;
-  width: 40%;
+  max-width: 600px;
+  padding: 0 2rem;
   margin: 1rem auto 0 auto;
 }
 
@@ -103,7 +104,7 @@ a.link {
   cursor: pointer;
   position: absolute;
   top: 50%;
-  left: 7px;
+  left: 38px;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   color: gray;
@@ -145,6 +146,7 @@ a.link {
 }
 
 .card--container .card--section .search--svg {
+  width: 100%;
   max-width: 800px;
 }
 
