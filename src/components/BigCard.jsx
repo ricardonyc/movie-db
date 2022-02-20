@@ -31,15 +31,14 @@ function BigCard(props) {
         }
       }
     }
-  }  
-
+  }
 
   let type_of_media;
   // checking media type
-  if(media_type === undefined || media_type === 'movie'){
-    type_of_media = 'Movie'
-  } else  {
-    type_of_media = 'TV'
+  if (media_type === undefined || media_type === "movie") {
+    type_of_media = "Movie";
+  } else {
+    type_of_media = "TV";
   }
 
   const imgUrl = `https://image.tmdb.org/t/p/original${poster_path}`;

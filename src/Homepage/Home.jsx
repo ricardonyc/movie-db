@@ -29,6 +29,8 @@ function Home(props) {
   };
 
   return (
+    <>
+      <h1 className="nyt--h1">New York Times Trending Movie Stories</h1>
     <div className="home--container">
       {loading ? (
         <CircularProgress style={spinnerStyling} />
@@ -38,6 +40,7 @@ function Home(props) {
         })
       )}
     </div>
+    </>
   );
 }
 

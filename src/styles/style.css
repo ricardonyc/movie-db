@@ -8,7 +8,7 @@
 }
 
 body {
-  background-image: url(../../sun-tornado.svg);
+  background-image: url(../../sun-tornado3.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -27,7 +27,7 @@ body {
 .nav--container nav {
   max-width: 1400px;
   margin: auto;
-  color: #62ee81;
+  color: #E6AF2E;
   text-align: center;
 }
 
@@ -49,7 +49,7 @@ body {
           align-items: center;
   list-style: none;
   padding: 0.5rem 0 1rem 0;
-  border-bottom: 2px solid #62ee81;
+  border-bottom: 2px solid #E6AF2E;
 }
 
 .nav--container nav ul li {
@@ -65,7 +65,8 @@ body {
 }
 
 .nav--container nav ul li:hover {
-  background: #193855;
+  background: #E6AF2E;
+  color: #223137;
 }
 
 a.link {
@@ -74,10 +75,22 @@ a.link {
   display: flex;
 }
 
+.nyt--h1 {
+  max-width: 1400px;
+  margin: 1rem auto 0 auto;
+  text-align: center;
+  color: white;
+}
+
 .card--container {
   max-width: 1400px;
   margin: auto;
   padding-bottom: 3rem;
+}
+
+.card--container .results {
+  font-size: 1.6rem;
+  color: white;
 }
 
 .card--container .searchbar--container {
@@ -129,6 +142,20 @@ a.link {
 
 .card--container .card--section .spinner {
   margin-top: 5rem;
+}
+
+.card--container .card--section .search--svg {
+  max-width: 800px;
+}
+
+.card--container .card--section .search--h2 {
+  color: white;
+  border: 1px solid red;
+}
+
+.card--container .card--section .nothing--found {
+  color: #ff4040;
+  font-size: 2.5rem;
 }
 
 .card--container .card--section .movie--card {
@@ -247,7 +274,7 @@ a.link {
 }
 
 .home--container .news--card .text--container a {
-  color: #62ee81;
+  color: #E6AF2E;
 }
 
 .moviepage--container {
@@ -273,8 +300,8 @@ a.link {
 .moviepage--container button {
   margin-top: 2rem;
   cursor: pointer;
-  background: #62ee81;
-  color: #0c2d4b;
+  background: #E6AF2E;
+  color: #223137;
   border: none;
   border-radius: 2px;
   padding: 0.3rem 0;
@@ -352,8 +379,8 @@ a.link {
 .moviepage--container .moviepage--section .movie--info {
   border-radius: 0 5px 5px 0;
   padding: 1rem;
-  background: #62ee81;
-  color: #0c2d4b;
+  background: #E6AF2E;
+  color: #223137;
   -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: text;
@@ -375,7 +402,7 @@ a.link {
   margin: 0.4rem 0.5rem 0.4rem 0;
   border-radius: 5px;
   color: white;
-  background: #0c2d4b;
+  background: #223137;
   padding: 0.2rem 0.5rem;
 }
 
@@ -385,7 +412,7 @@ a.link {
 }
 
 .moviepage--container .moviepage--section .movie--info .rating--section {
-  background: #0c2d4b;
+  background: #223137;
   color: white;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -434,7 +461,7 @@ a.link {
 }
 
 .moviepage--container .recommendations--section h3 {
-  border-top: 1px solid #62ee81;
+  border-top: 1px solid #E6AF2E;
   width: 100%;
   text-align: center;
   padding: 1rem 0;
@@ -505,8 +532,8 @@ a.link {
 .moviepage--container .recommendations--section button {
   margin-top: 2rem;
   cursor: pointer;
-  background: #62ee81;
-  color: #0c2d4b;
+  background: #E6AF2E;
+  color: #223137;
   border: none;
   border-radius: 2px;
   padding: 0.3rem 0;
@@ -565,7 +592,7 @@ a.link {
     left: -240px;
     z-index: 9999999;
     border-radius: 10px;
-    background: #0c2d4b;
+    background: #223137;
     text-align: start;
     display: block !important;
     width: 220px !important;

@@ -43,6 +43,13 @@ function MoviePage(props) {
     setCast(data.cast);
   };
 
+  const fetchTvCast = async () => {
+    const { data } = await axios.get(
+      `https://api.themoviedb.org/3/tv/${id}/credits?api_key=83bc98823c4c710c5443011ef8e9dbf9&language=en-US`
+    );
+    setCast(data.cast);
+  };
+
   // if media_type is undefined, its a movie
   useEffect(() => {
     if (media_type === undefined || media_type === "movie") {
@@ -50,6 +57,7 @@ function MoviePage(props) {
       fetchCast();
     } else {
       fetchTvRecommendations();
+      fetchTvCast();
     }
   }, []);
 

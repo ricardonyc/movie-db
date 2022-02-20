@@ -19,8 +19,6 @@ function Card({ info }) {
     first_air_date,
   } = info;
 
-  console.log(info)
-
   const imgUrl = `https://image.tmdb.org/t/p/original${poster_path}`;
 
   const ratingColor = {
@@ -45,7 +43,7 @@ function Card({ info }) {
           genre_ids,
           media_type,
           first_air_date,
-        }) 
+        })
       }
     >
       <div className="movie--card">

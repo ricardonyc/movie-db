@@ -3,13 +3,13 @@ import Card from "../Card";
 import axios from "axios";
 import CircularProgress from "@mui/material/CircularProgress";
 import { FaSearch } from "react-icons/fa";
+import img2 from "../../images/film-rolls.svg";
 
 function Search(props) {
   const [search, setSearch] = useState("");
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [foundNone, setFoundNone] = useState(false);
-  const [isEmpty, setIsEmpty] = useState(true);
+  const [isEmpty, setIsEmpty] = useState(false);
 
   const fetchSearch = async () => {
     setLoading(true);
@@ -20,12 +20,12 @@ function Search(props) {
 
     setTimeout(() => {
       setLoading(false);
-      data.results.length > 0 ? setResults(data.results) : setFoundNone(true);
+      setResults(data.results)
       // setResults(data.results);
     }, 700);
   };
 
-  console.log(search);
+  console.log(results);
 
   const searchHandler = (e) => {
     setSearch(e.target.value);
@@ -34,6 +34,8 @@ function Search(props) {
   const enterPress = (e) => {
     if (e.key === "Enter") {
       fetchSearch();
+      setIsEmpty(true);
+      setResults([]);
     }
   };
 
@@ -45,6 +47,7 @@ function Search(props) {
 
   return (
     <div className="card--container">
+      <h2 className="top--h2">Search</h2>
       <div className="searchbar--container">
         <input
           className="search--bar"
@@ -52,30 +55,22 @@ function Search(props) {
           onChange={searchHandler}
           onKeyPress={enterPress}
           value={search}
+          placeholder="Search Movies and TV Shows..."
         />
         <FaSearch onClick={fetchSearch} className="search--icon" />
       </div>
-      <h2 className="top--h2">Search</h2>
       <div className="card--section">
-        {!search ? (
-          <h1>Start Searching</h1>
-        ) : foundNone ? (
-          <h1>NOTHING FOUND</h1>
+        {!isEmpty ? (
+          <img className="search--svg" src={img2} alt="" />
+        ) : results.length < 1 ? (
+          <h2 className="nothing--found">NOTHING FOUND</h2>
         ) : loading ? (
           <CircularProgress className="spinner" style={spinnerStyling} />
         ) : (
           results.map((result) => {
-            return <Card info={result} />;
+            return <Card key={result.id} info={result} />;
           })
         )}
-
-        {/* {loading ? (
-          <CircularProgress className="spinner" style={spinnerStyling} />
-        ) : (
-          results.map((result) => {
-            return <Card info={result} />;
-          })
-        )} */}
       </div>
     </div>
   );
