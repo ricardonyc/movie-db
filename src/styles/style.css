@@ -176,8 +176,6 @@ a.link {
           box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   width: 220px;
-  border: 1px solid red;
-  /* ////////////////////////////////////////////////////////////////////////// */
 }
 
 .card--container .card--section .movie--card:hover .text--container {
@@ -518,8 +516,6 @@ a.link {
           flex-direction: column;
   margin: 0.4rem;
   position: relative;
-  border: 1px solid yellow;
-  /* //////////////////////////////////////////////////////////////////////// */
 }
 
 .moviepage--container .recommendations--section .recommendation--cards .moviepage--card .card--text {

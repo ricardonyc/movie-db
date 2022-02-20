@@ -156,8 +156,6 @@ a {
       overflow: hidden;
       // width: $card-image-size;
       width: $card-image-size;
-      border: 1px solid red;
-      /* ////////////////////////////////////////////////////////////////////////// */
 
       &:hover .text--container {
         transform: translateY(0);
@@ -406,8 +404,6 @@ a {
         flex-direction: column;
         margin: $card-margin;
         position: relative;
-        border: 1px solid yellow;
-        /* //////////////////////////////////////////////////////////////////////// */
 
         .card--text {
           width: 100%;
