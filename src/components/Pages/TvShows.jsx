@@ -6,11 +6,10 @@ import CircularProgress from "@mui/material/CircularProgress";
 function TvShows(props) {
   const [tvShows, setTvShows] = useState([]);
   const [loading, setLoading] = useState(true);
-  // const [tvRecommendations, setTvRecommendations] = useState([]);
 
   const fetchTrending = async () => {
     const { data } = await axios.get(
-      `https://api.themoviedb.org/3/trending/tv/day?api_key=${process.env.REACT_APP_TMDB_KEY}`
+      `https://api.themoviedb.org/3/trending/tv/day?api_key=83bc98823c4c710c5443011ef8e9dbf9`
     );
 
     setTvShows(data.results);
@@ -37,12 +36,10 @@ function TvShows(props) {
           <CircularProgress className="spinner" style={spinnerStyling} />
         ) : (
           tvShows.map((movie) => {
-            return (
-              <Card info={movie} key={movie.id} />
-            );
+            return <Card info={movie} key={movie.id} />;
           })
         )}
-      </div> 
+      </div>
     </div>
   );
 }

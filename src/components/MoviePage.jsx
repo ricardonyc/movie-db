@@ -24,21 +24,21 @@ function MoviePage(props) {
 
   const fetchMovieRecommendations = async () => {
     const { data } = await axios.get(
-      `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+      `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=83bc98823c4c710c5443011ef8e9dbf9&language=en-US&page=1`
     );
     setRecommendations(data.results);
   };
 
   const fetchTvRecommendations = async () => {
     const { data } = await axios.get(
-      `https://api.themoviedb.org/3/tv/${id}/similar?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+      `https://api.themoviedb.org/3/tv/${id}/similar?api_key=83bc98823c4c710c5443011ef8e9dbf9&language=en-US&page=1`
     );
     setRecommendations(data.results);
   };
 
   const fetchCast = async () => {
     const { data } = await axios.get(
-      `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
+      `https://api.themoviedb.org/3/movie/${id}/credits?api_key=83bc98823c4c710c5443011ef8e9dbf9&language=en-US`
     );
     setCast(data.cast);
   };

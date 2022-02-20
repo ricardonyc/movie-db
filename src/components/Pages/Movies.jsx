@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from "react";
 import Card from "../Card";
 import axios from "axios";
-// import Genres from "../../Genres";
 import CircularProgress from "@mui/material/CircularProgress";
 
 function Trending(props) {
   const [trending, setTrending] = useState([]);
   const [loading, setLoading] = useState(true);
-  // const { genres } = Genres;
 
   const fetchTrending = async () => {
     const { data } = await axios.get(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1&region=US`
+      `https://api.themoviedb.org/3/movie/popular?api_key=83bc98823c4c710c5443011ef8e9dbf9&language=en-US&page=1&region=US`
     );
 
     setTrending(data.results);

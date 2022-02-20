@@ -2,13 +2,10 @@ import React, { useState, useEffect } from "react";
 import GenreList from "./GenreList";
 import Rating from "./Rating";
 import Genres from "../Genres";
-import axios from "axios";
-import CastCards from "./CastCards";
 
 function BigCard(props) {
   const { moviePoster, mediaInfo, movieId } = props;
   const { genres } = Genres;
-  const [cast, setCast] = useState([]);
 
   const {
     title,
