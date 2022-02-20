@@ -86,9 +86,7 @@ a {
 
   .searchbar--container {
     position: relative;
-    // width: 40%;
     max-width: 600px;
-    // border: 1px solid red;
     padding: 0 2rem;
     margin: 1rem auto 0 auto;
 
@@ -132,7 +130,6 @@ a {
     }
 
     .search--svg {
-      // border: 1px solid red;
       width: 100%;
       max-width: 800px;
     }
@@ -148,13 +145,11 @@ a {
     }
 
     .movie--card {
-      // border: 1px solid red;
       @include flexCenter;
       margin: $card-margin;
       position: relative;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
       overflow: hidden;
-      // width: $card-image-size;
       width: $card-image-size;
 
       &:hover .text--container {
@@ -165,7 +160,6 @@ a {
         display: block;
         max-width: $card-image-size;
         height: 100%;
-        // border: 1px solid blue;
       }
 
       .rating {
@@ -220,7 +214,6 @@ a {
   grid-gap: 10px;
   color: white;
   display: flex;
-  // @include flexCenter;
   justify-content: center;
   flex-wrap: wrap;
 
@@ -240,7 +233,6 @@ a {
       padding: 1rem;
 
       a {
-        // text-decoration: none;
         color: $green;
       }
     }
@@ -279,7 +271,6 @@ a {
       flex-direction: column;
       align-items: center;
       margin: $card-margin;
-      // border: 1px solid red;
       height: 100%;
       width: $card-image-size;
       overflow: hidden;
@@ -287,15 +278,11 @@ a {
       img {
         max-width: $card-image-size;
         border-radius: 3px;
-        // height: 100%;
       }
 
       .card--text {
-        // display: none;
-        // border: 1px solid red;
         margin-top: 0.5rem;
         text-align: center;
-        // max-width: 100%;
         font-size: 0.9rem;
       }
     }
@@ -314,7 +301,6 @@ a {
     .movie--info {
       border-radius: 0 5px 5px 0;
       padding: 1rem;
-      // border: 1px solid red;
       background: $green;
       color: $blue;
       grid-area: text;
@@ -356,7 +342,6 @@ a {
         .fire,
         .poo {
           margin: 0.2rem 0.5rem 0.2rem 0;
-          // font-size: 1.4rem;
         }
 
         .recommended {
@@ -366,7 +351,6 @@ a {
     }
 
     img {
-      // grid-area: img;
       max-width: 25%;
       border-radius: 5px 0 0 5px;
     }
@@ -434,8 +418,6 @@ a {
 
   img {
     max-width: 700px;
-    // margin: auto;
-    // @include flexCenter;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -522,7 +504,6 @@ a {
 
       .movie--info {
         font-size: 0.9rem;
-        // border: 1px solid red;
         grid-area: text;
         max-width: 80%;
         border-radius: 0 0 5px 5px;

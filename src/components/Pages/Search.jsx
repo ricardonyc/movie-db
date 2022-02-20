@@ -27,7 +27,6 @@ function Search(props) {
     setTimeout(() => {
       setLoading(false);
       setResults(data.results);
-      // setResults(data.results);
     }, 700);
   };
 
@@ -64,18 +63,6 @@ function Search(props) {
         <FaSearch onClick={fetchSearch} className="search--icon" />
       </div>
       <div className="card--section">
-        {/* {!isEmpty ? (
-          <img className="search--svg" src={img2} alt="" />
-        ) : results.length < 1 ? (
-          <h2 className="nothing--found">NOTHING FOUND</h2>
-        ) : loading ? (
-          <CircularProgress className="spinner" style={spinnerStyling} />
-        ) : (
-          results.map((result) => {
-            return <Card key={result.id} info={result} />;
-          })
-        )} */}
-
         {isEmpty ? (
           <img className="search--svg" src={img2} alt="" />
         ) : loading ? (
