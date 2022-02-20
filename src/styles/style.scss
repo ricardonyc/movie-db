@@ -279,22 +279,23 @@ a {
       flex-direction: column;
       align-items: center;
       margin: $card-margin;
+      // border: 1px solid red;
       height: 100%;
       width: $card-image-size;
       overflow: hidden;
 
       img {
-        // width: 200px;
-        // width: 100%;
         max-width: $card-image-size;
         border-radius: 3px;
-        height: 100%;
+        // height: 100%;
       }
 
       .card--text {
+        // display: none;
+        // border: 1px solid red;
         margin-top: 0.5rem;
         text-align: center;
-        max-width: 100%;
+        // max-width: 100%;
         font-size: 0.9rem;
       }
     }

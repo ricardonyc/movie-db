@@ -175,7 +175,7 @@ a.link {
   -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
           box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   overflow: hidden;
-  width: 220px;
+  width: 200px;
 }
 
 .card--container .card--section .movie--card:hover .text--container {
@@ -185,7 +185,7 @@ a.link {
 
 .card--container .card--section .movie--card img {
   display: block;
-  max-width: 220px;
+  max-width: 200px;
   height: 100%;
 }
 
@@ -353,20 +353,18 @@ a.link {
           align-items: center;
   margin: 0.4rem;
   height: 100%;
-  width: 220px;
+  width: 200px;
   overflow: hidden;
 }
 
 .moviepage--container .cast--cards__container .cast--card img {
-  max-width: 220px;
+  max-width: 200px;
   border-radius: 3px;
-  height: 100%;
 }
 
 .moviepage--container .cast--cards__container .cast--card .card--text {
   margin-top: 0.5rem;
   text-align: center;
-  max-width: 100%;
   font-size: 0.9rem;
 }
 
@@ -508,7 +506,7 @@ a.link {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 220px;
+  width: 200px;
   text-align: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -538,7 +536,7 @@ a.link {
 
 .moviepage--container .recommendations--section .recommendation--cards .moviepage--card img {
   width: 100%;
-  max-width: 220px;
+  max-width: 200px;
 }
 
 .moviepage--container .recommendations--section button {
