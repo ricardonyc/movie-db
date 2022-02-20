@@ -353,7 +353,7 @@ a.link {
           align-items: center;
   margin: 0.4rem;
   height: 100%;
-  max-width: 220px;
+  width: 220px;
   overflow: hidden;
 }
 
